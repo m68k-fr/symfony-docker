@@ -1,6 +1,6 @@
-# General purpose Symfony project using Docker
+# A Docker Environment for Symfony on Windows
 
-A general purpose Symfony project using Docker.  
+A general purpose Symfony project using Docker on Windows.  
 The project is configured for a development environment, please do not use this in production environment.
 
 ## Technology included
@@ -15,59 +15,68 @@ The project is configured for a development environment, please do not use this 
 
 ## Requirements
 
-* [Docker Native](https://www.docker.com/products/overview)
+* [Docker for Windows](https://store.docker.com/editions/community/docker-ce-desktop-windows)
+* [Git for Windows](https://gitforwindows.org/)
 
 ## Installation
 
 Clone the repository.  
 
-## Configuration
+```sh
+git clone https://github.com/ngc5128/symfony-docker.git
+```
 
-You can skip this step, but it is mandatory for XDebug to work correctly.  
+
+## Configuring Docker for XDebug
+
 In your **docker-compose.yml** file, update the **DOCKER_NAT_IP** argument with your own vEthernet DockerNAT ip.  
 On Windows system, you can use the following command to spot it. 
 ```sh
 ipconfig /all
 ```
 
-
-## Running
+## Start all services
 
 Change directory into the cloned project.
-
-### Start all services:
 
 ```sh
 docker-compose up -d
 ```
 
-You should now be able to access the symfony app by browsing http://localhost  
-phpmyAdmin should be available on http://localhost:8080 (root@root)
+## PhpMyAdmin
+phpmyAdmin should be available on http://localhost:8080 (user: root password:root)
 
-### Launch a Bash session on the main Symfony container:
 
+## Post Configuration
+
+After starting all services, open a Bash session on the Symfony container and update composer:  
 ```sh
 docker-compose exec symfony-app /bin/bash
+cd ../symfony-app/
+composer install
+exit
 ```
 
-### Shutdown all containers:
-
-```sh
-docker-compose down -v
-```
+You should now be able to access the symfony app by browsing http://localhost
 
 ## Configuring XDebug for VS Code
 
-Install the [PHP Debug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug) extension published by Felix Becker.  
-Once done, add this profile in your **.vscode/launch.json** file.
+Using VS Code, install the [PHP Debug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug) extension published by Felix Becker.  
+Select the debug tab using the icon on the left sidebar, then click on the cog next to the *Listen for XDebug* dropdown to open **launch.json** file.   
+Update the *Listen for XDebug* profile in the **launch.json** file with the following:
 ```
 {
-    "name": "Docker XDebug",
+    "name": "Listen for XDebug",
     "type": "php",
     "request": "launch",
     "port": 9000,
     "pathMappings": {
         "/var/www/symfony-app": "${workspaceRoot}/symfony-app"
     }            
-}
+},     
+```
+
+## Stop all services
+```sh
+docker-compose down -v
 ```
