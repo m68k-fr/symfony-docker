@@ -1,0 +1,32 @@
+version: '2'
+
+services:
+    symfony-app:
+        build:
+            context: .
+            args:
+                # On windows, you can use "ipconfig /all" to get the IP of your docker nat host
+                DOCKER_NAT_IP: 10.0.75.1
+        ports:
+            - "80:80"
+            - "443:443"
+        expose:
+            - "9000"            
+        volumes:
+            - ./symfony-app:/var/www/symfony-app
+        links:
+            - db:db
+    db:
+        image: mysql:5.5
+        volumes:
+            - ./mysql:/var/lib/mysql
+        ports:
+            - "3306:3306"
+        environment:
+            - MYSQL_ROOT_PASSWORD=root
+    myadmin:
+        image: phpmyadmin/phpmyadmin
+        ports:
+            - "8080:80"
+        links:
+            - db:db
