@@ -1,3 +1,7 @@
 .vscode/launch.json
 .vscode/settings.json
 .DS_Store
+.idea
+/symfony-app/node_modules/
+/symfony-app/assets/
+/symfony-app/web/build/

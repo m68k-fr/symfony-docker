@@ -35,7 +35,7 @@ On Windows system, you can use the following command to spot it.
 ipconfig /all
 ```
 
-## Start all services
+## Start all Docker services
 
 Change directory into the cloned project.
 
@@ -47,17 +47,19 @@ docker-compose up -d
 phpmyAdmin should be available on http://localhost:8080 (user: root password:root)
 
 
-## Post Configuration
+## Install Symfony 3.4 Standard Edition
 
-After starting all services, open a Bash session on the Symfony container and update composer:  
+After starting all Docker services, open a Bash session on the Symfony container and update composer:  
 ```sh
 docker-compose exec symfony-app /bin/bash
-cd ../symfony-app/
-composer install
+cd ..
+composer create-project symfony/framework-standard-edition symfony-app
 exit
 ```
 
-You should now be able to access the symfony app by browsing http://localhost
+Now, you should be able to access the symfony app by browsing http://localhost
+
+
 
 ## Configuring XDebug for VS Code
 
@@ -76,7 +78,14 @@ Update the *Listen for XDebug* profile in the **launch.json** file with the foll
 },     
 ```
 
-## Stop all services
+## Configuring XDebug for PhpStorm
+
+In settings / Language & Frameworks / PHP / Debug / DBGPproxy:  
+* Port: 9000
+* Host: Use the **DOCKER_NAT_IP** ip
+
+
+## Stop all Docker services
 ```sh
 docker-compose down -v
 ```
