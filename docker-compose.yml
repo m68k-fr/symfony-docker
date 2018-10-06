@@ -1,7 +1,7 @@
 version: '2'
 
 services:
-    symfony-app:
+    symfony:
         build:
             context: .
             args:
@@ -13,7 +13,9 @@ services:
         expose:
             - "9000"            
         volumes:
-            - .:/var/www/symfony-app
+            - .:/var/www/html
+            # Mount an empty folder for html/mysql/ in the container
+            - /var/www/html/mysql/
         links:
             - db:db
     db:

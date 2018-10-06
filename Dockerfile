@@ -51,7 +51,7 @@ RUN docker-php-ext-enable imagick
 
 # Opcache php accelerator
 RUN docker-php-ext-configure opcache --enable-opcache && docker-php-ext-install opcache
-COPY conf/opcache.ini $PHP_INI_DIR/conf.d/
+COPY docker-conf/opcache.ini $PHP_INI_DIR/conf.d/
 
 # Update ICU data bundled to the symfony required version
 RUN curl -o /tmp/icu.tar.gz -L http://download.icu-project.org/files/icu4c/$ICU_RELEASE/icu4c-$(echo $ICU_RELEASE | tr '.' '_')-src.tgz && tar -zxf /tmp/icu.tar.gz -C /tmp && cd /tmp/icu/source && ./configure --prefix=/usr/local && make && make install
@@ -66,12 +66,12 @@ RUN rm /etc/localtime
 RUN ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
 
 # Apache Configuration
-COPY conf/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY docker-conf/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 RUN a2enmod headers
 
 # SSL configuration
-COPY conf/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+COPY docker-conf/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 RUN a2enmod ssl
 RUN a2ensite default-ssl
 RUN openssl req -subj '/CN=localdevmachine.com/O=My Dev Local Machine LTD./C=US' -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout /etc/ssl/private/ssl-cert-snakeoil.key -out /etc/ssl/certs/ssl-cert-snakeoil.pem
