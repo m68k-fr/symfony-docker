@@ -1,0 +1,11 @@
+// custom variables and override bootstrap variables
+$font-family-sans-serif:  'Montserrat', sans-serif;
+$font-size-base:          1.6rem;
+$headings-color:          #635C73;
+$brand-primary:           #8d81ac;
+$theme-colors: (
+        primary: #8d81ac
+);
+
+// Bootstrap and its default variables
+@import "~bootstrap/scss/bootstrap";

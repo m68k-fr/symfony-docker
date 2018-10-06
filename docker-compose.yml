@@ -13,7 +13,7 @@ services:
         expose:
             - "9000"            
         volumes:
-            - ./symfony-app:/var/www/symfony-app
+            - .:/var/www/symfony-app
         links:
             - db:db
     db:
