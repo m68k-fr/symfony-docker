@@ -9,21 +9,21 @@
                     <div class="opener-holder">
                         <a href="#" class="nav-opener"><span></span></a>
                     </div>
-                    <a href="http://tympanus.net/codrops/?p=23525" class="btn btn-primary rounded">Buy Now</a>
+                    <a href="#" class="btn btn-primary rounded">Buy Now</a>
                     <div class="nav-drop">
                         <ul>
-                            <li class="active visible-sm visible-xs"><a href="#">Home</a></li>
+                            <li class="active d-lg-none"><a href="#">Home</a></li>
                             <li><a href="#">Overview</a></li>
                             <li><a href="#">About Fork</a></li>
                             <li><a href="#">Buying Options</a></li>
                             <li><a href="#">Support</a></li>
                         </ul>
-                        <div class="drop-holder visible-sm visible-xs">
+                        <div class="drop-holder d-lg-none">
                             <span>Follow Us</span>
                             <ul class="social-networks">
-                                <li><a class="fa fa-github" href="#"></a></li>
-                                <li><a class="fa fa-twitter" href="#"></a></li>
-                                <li><a class="fa fa-facebook" href="#"></a></li>
+                                <li><a class="fab fa-github" href="#"></a></li>
+                                <li><a class="fab fa-twitter" href="#"></a></li>
+                                <li><a class="fab fa-facebook-f" href="#"></a></li>
                             </ul>
                         </div>
                     </div>
@@ -49,7 +49,7 @@
                     <p>Unlimited 30-Days Trial Period</p>
                 </div>
                 <div class="row">
-                    <div class="text-box col-md-offset-1 col-md-10">
+                    <div class="text-box offset-md-1 col-md-10">
                         <h2>Revolutionary editor</h2>
                         <p>Aenean cursus imperdiet nisl id fermentum. Aliquam pharetra dui laoreet vulputate dignissim. Sed id metus id quam auctor molestie eget ut augue. </p>
                         <div class="social-placeholder"><img src="{{ asset('images/img-social-placeholder-01.png') }}" height="26" width="365" alt=""></div>
@@ -60,8 +60,8 @@
         <section class="area">
             <div class="container">
                 <div class="row">
-                    <div class="col-md-5">
-                        <h2 class="visible-xs visible-sm text-primary">&lt;Here is what you get&gt;</h2>
+                    <div class="col-md-12 col-lg-5">
+                        <h2 class="d-lg-none text-primary">&lt;Here is what you get1&gt;</h2>
                         <ul class="visual-list">
                             <li>
                                 <div class="img-holder">
@@ -101,9 +101,9 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="col-md-7">
+                    <div class="col-md-12 col-lg-7">
                         <div class="slide-holder">
-                            <h2 class="hidden-xs hidden-sm text-primary">&lt;Here is what you get&gt;</h2>
+                            <h2 class="d-none d-lg-block text-primary">&lt;Here is what you get2&gt;</h2>
                             <div class="img-slide scroll-trigger"><img src="{{ asset('images/img-01.png') }}" height="624" width="1184" alt=""></div>
                         </div>
                     </div>
@@ -152,22 +152,29 @@
                                     </div>
                                 </div>
                             </div>
+                            <!--
                             <a class="btn-prev" href="#"><i class="glyphicon glyphicon-menu-left"></i></a>
                             <a class="btn-next" href="#"><i class="glyphicon glyphicon-menu-right"></i></a>
+                            -->
+
+                            <a class="btn-prev" href="#"><i class="fa fa-angle-left"></i></a>
+                            <a class="btn-next" href="#"><i class="fa fa-angle-right"></i></a>
+
+
                         </div>
                     </div>
                     <div class="block-frame">
                         <ul class="cta-list">
                             <li>
-                                <a href="#" class="btn btn-default"><i class="fa fa-github"></i> GitHub</a>
+                                <a href="#" class="btn btn-default"><i class="fab fa-github"></i> GitHub</a>
                                 <p>7 352 Followers</p>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i> Twitter</a>
+                                <a href="#" class="btn btn-info"><i class="fab fa-twitter"></i> Twitter</a>
                                 <p>136 312 Followers</p>
                             </li>
                             <li>
-                                <a href="#" class="btn btn-blue"><i class="fa fa-facebook"></i> Facebook</a>
+                                <a href="#" class="btn btn-blue"><i class="fab fa-facebook-f"></i> Facebook</a>
                                 <p>218 092 Subscribers</p>
                             </li>
                         </ul>

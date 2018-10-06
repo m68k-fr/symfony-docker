@@ -27,19 +27,12 @@
         <link rel="icon" type="image/png" href="{{ asset('favicons/favicon-16x16.png') }}" sizes="16x16">
         <link rel="manifest" href="{{ asset('favicons/manifest.json') }}">
         <link rel="shortcut icon" href="{{ asset('favicons/favicon.ico') }}">
-
-        <!--<link rel="stylesheet" href="{{ asset('css/bootstrap.css') }}">-->
-        <link rel="stylesheet" href="{{ asset('fonts/font-awesome-4.3.0/css/font-awesome.min.css') }}">
         <link rel="stylesheet" href="{{ asset('build/app.css') }}">
         {% block stylesheets %}{% endblock %}
-
         <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     </head>
     <body>
         {% block body %}{% endblock %}
-        <!--<script src="{{ asset('js/jquery-1.11.2.min.js') }}"></script>-->
-        <!--<script src="{{ asset('js/bootstrap.js') }}"></script>-->
-        <!-- <script src="{{ asset('js/jquery.main.js') }}"></script> -->
         <script src="{{ asset('build/app.js') }}"></script>
         {% block javascripts %}{% endblock %}
     </body>
