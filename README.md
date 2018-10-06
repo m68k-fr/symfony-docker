@@ -1,17 +1,21 @@
-# A Docker Environment for Symfony on Windows
+# A Symfony sample project using Docker on Windows
 
-A general purpose Symfony project using Docker on Windows.  
-The project is configured for a development environment, please do not use this in production environment.
+This is a general purpose Symfony project using Docker on Windows.  
+It features a use case website, the kind of small project you could encounter in a web agency.   
+No special features here, the goal was simply to practice and learn the basis.  
+As usual, the repository is configured for a development environment, please do not use this in a production environment.
 
 ## Technology included
 
+* [Docker](https://www.docker.com/)
 * [Apache](https://httpd.apache.org/)
 * [MySQL](https://www.mysql.com/)
-* [PHP 7](https://php.net/)
+* [PHP 7.1](https://php.net/)
 * [PhpMyAdmin](https://www.phpmyadmin.net/)
-* [Symfony](https://symfony.com/)
+* [Symfony 3.4](https://symfony.com/)
 * [Composer](https://getcomposer.org/)
 * [XDebug](https://xdebug.org/)
+* [Webpack (using Webpack Encore)](https://symfony.com/doc/3.4/frontend/encore/installation-no-flex.html)
 
 ## Requirements
 
@@ -30,14 +34,14 @@ git clone https://github.com/ngc5128/symfony-docker.git
 ## Configuring Docker for XDebug
 
 In your **docker-compose.yml** file, update the **DOCKER_NAT_IP** argument with your own vEthernet DockerNAT ip.  
-On Windows system, you can use the following command to spot it. 
+On Windows system, you can use the following command to find it. 
 ```sh
 ipconfig /all
 ```
 
 ## Start all Docker services
 
-Change directory into the cloned project.
+Change directory into the cloned project, then build the Docker image and launch containers.
 
 ```sh
 docker-compose up -d
@@ -47,17 +51,16 @@ docker-compose up -d
 phpmyAdmin should be available on http://localhost:8080 (user: root password:root)
 
 
-## Install Symfony 3.4 Standard Edition
+## Update Symfony 3.4 Standard Edition
 
-After starting all Docker services, open a Bash session on the Symfony container and update composer:  
+Open a Bash session on the Symfony container and update composer:  
 ```sh
-docker-compose exec symfony-app /bin/bash
-cd ..
-composer create-project symfony/framework-standard-edition symfony-app
+docker-compose exec symfony /bin/bash
+composer install
 exit
 ```
 
-Now, you should be able to access the symfony app by browsing http://localhost
+Now, you should be able to access the symfony website by browsing http://localhost
 
 
 
@@ -73,14 +76,14 @@ Update the *Listen for XDebug* profile in the **launch.json** file with the foll
     "request": "launch",
     "port": 9000,
     "pathMappings": {
-        "/var/www/symfony-app": "${workspaceRoot}/symfony-app"
+        "/var/www/html": "${workspaceRoot}"
     }            
 },     
 ```
 
 ## Configuring XDebug for PhpStorm
 
-In settings / Language & Frameworks / PHP / Debug / DBGPproxy:  
+Using PHPStorm, in settings / Language & Frameworks / PHP / Debug / DBGPproxy:  
 * Port: 9000
 * Host: Use the **DOCKER_NAT_IP** ip
 
