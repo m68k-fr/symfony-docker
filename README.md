@@ -53,18 +53,16 @@ phpmyAdmin should be available on http://localhost:8080 (user: root password:roo
 
 ## Update Symfony 3.4 Standard Edition
 
-Open a Bash session on the Symfony container and update composer:  
+Install composer dependencies:  
 ```sh
-docker-compose exec symfony /bin/bash
-composer install
-exit
+docker-compose exec symfony composer install
 ```
 
 Now, you should be able to access the symfony website by browsing http://localhost
 
 
 
-## Configuring XDebug for VS Code
+## Configure XDebug for VS Code
 
 Using VS Code, install the [PHP Debug](https://marketplace.visualstudio.com/items?itemName=felixfbecker.php-debug) extension published by Felix Becker.  
 Select the debug tab using the icon on the left sidebar, then click on the cog next to the *Listen for XDebug* dropdown to open **launch.json** file.   
@@ -81,12 +79,25 @@ Update the *Listen for XDebug* profile in the **launch.json** file with the foll
 },     
 ```
 
-## Configuring XDebug for PhpStorm
+## Configure XDebug for PhpStorm
 
 Using PHPStorm, in settings / Language & Frameworks / PHP / Debug / DBGPproxy:  
 * Port: 9000
 * Host: Use the **DOCKER_NAT_IP** ip
 
+
+## Configure PHP-CS-Fixer for PhpStorm
+
+* Install PHP-CS-Fixer globally from composer
+```sh
+composer global require friendsofphp/php-cs-fixer
+```
+* Using PHPStorm, add a new "External Tools" and configure it using the following parameters
+```
+Program: C:\Users\myuser\AppData\Roaming\Composer\vendor\bin\php-cs-fixer.bat
+Arguments: fix --verbose --path-mode=intersection "$FileDir$/$FileName$"
+Working directory: $ProjectFileDir$
+```
 
 ## Stop all Docker services
 ```sh

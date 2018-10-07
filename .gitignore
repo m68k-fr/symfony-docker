@@ -18,6 +18,7 @@
 
 # custom project settings
 
+.php_cs.cache
 .vscode/launch.json
 .vscode/settings.json
 .DS_Store
