@@ -14,14 +14,15 @@ services:
             - "9000"            
         volumes:
             - .:/var/www/html
-            # Mount an empty folder for html/mysql/ in the container
-            - /var/www/html/mysql/
+            - ./dockerfiles/logs:/var/log/apache2
+            # Mount an empty folder for /var/www/html/dockerfiles/ in the container
+            - /var/www/html/dockerfiles/
         links:
             - db:db
     db:
         image: mysql:5.5
         volumes:
-            - ./mysql:/var/lib/mysql
+            - ./dockerfiles/mysql:/var/lib/mysql
         ports:
             - "3306:3306"
         environment:

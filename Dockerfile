@@ -8,8 +8,31 @@ ENV ICU_RELEASE 62.1
 ENV NODE_VERSION 8.12.0
 ENV YARN_VERSION 1.9.4
 
-RUN apt-get update
-RUN apt-get install --yes --assume-yes cron g++ gettext libicu-dev openssl libc-client-dev libkrb5-dev libxml2-dev libfreetype6-dev libgd-dev bzip2 libbz2-dev libtidy-dev libcurl4-openssl-dev libz-dev libmemcached-dev libxslt-dev git zip vim gpg
+RUN apt-get update && \
+    apt-get install --yes --assume-yes \
+    cron \
+    g++ \
+    gettext \
+    libicu-dev \
+    openssl \
+    libc-client-dev \
+    libkrb5-dev \
+    libxml2-dev \
+    libfreetype6-dev \
+    libgd-dev \
+    bzip2 \
+    libbz2-dev \
+    libtidy-dev \
+    libcurl4-openssl-dev \
+    libz-dev \
+    libmemcached-dev \
+    libxslt-dev \
+    git \
+    zip \
+    vim \
+    gpg \
+    libmagickwand-dev \
+    libmagickcore-dev
 
 # Use the default php.ini development configuration
 RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
@@ -45,13 +68,12 @@ RUN echo 'xdebug.remote_handler=dbgp' >> $PHP_INI_DIR/php.ini
 RUN echo 'xdebug.idekey=docker' >> $PHP_INI_DIR/php.ini
 
 # Imagemagick
-RUN apt-get install --yes --assume-yes libmagickwand-dev libmagickcore-dev
 RUN yes '' | pecl install -f imagick
 RUN docker-php-ext-enable imagick
 
 # Opcache php accelerator
 RUN docker-php-ext-configure opcache --enable-opcache && docker-php-ext-install opcache
-COPY docker-conf/opcache.ini $PHP_INI_DIR/conf.d/
+COPY dockerfiles/conf/opcache.ini $PHP_INI_DIR/conf.d/
 
 # Update ICU data bundled to the symfony required version
 RUN curl -o /tmp/icu.tar.gz -L http://download.icu-project.org/files/icu4c/$ICU_RELEASE/icu4c-$(echo $ICU_RELEASE | tr '.' '_')-src.tgz && tar -zxf /tmp/icu.tar.gz -C /tmp && cd /tmp/icu/source && ./configure --prefix=/usr/local && make && make install
@@ -66,12 +88,12 @@ RUN rm /etc/localtime
 RUN ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
 
 # Apache Configuration
-COPY docker-conf/000-default.conf /etc/apache2/sites-available/000-default.conf
+COPY dockerfiles/conf/000-default.conf /etc/apache2/sites-available/000-default.conf
 RUN a2enmod rewrite
 RUN a2enmod headers
 
 # SSL configuration
-COPY docker-conf/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
+COPY dockerfiles/conf/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
 RUN a2enmod ssl
 RUN a2ensite default-ssl
 RUN openssl req -subj '/CN=localdevmachine.com/O=My Dev Local Machine LTD./C=US' -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout /etc/ssl/private/ssl-cert-snakeoil.key -out /etc/ssl/certs/ssl-cert-snakeoil.pem
