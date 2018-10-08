@@ -53,12 +53,23 @@ phpmyAdmin should be available on http://localhost:8080 (user: root password:roo
 
 ## Update Symfony 3.4 Standard Edition
 
-Install composer dependencies:  
+Using a terminal, pull composer dependencies  
 ```sh
 docker-compose exec symfony composer install
 ```
 
-Now, you should be able to access the symfony website by browsing http://localhost
+* database_host: Enter the **DOCKER_NAT_IP** found above.
+* database_password: root
+* secret: You can use http://nux.net/secret to generate one.
+
+Build web assets
+
+```sh
+docker-compose exec symfony yarn encore dev
+```
+
+
+Now, you should be able to access the symfony website by browsing http://localhost/app_dev.php
 
 
 

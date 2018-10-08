@@ -65,7 +65,6 @@ RUN echo 'xdebug.remote_autostart=1' >> $PHP_INI_DIR/php.ini
 RUN echo "xdebug.remote_host=${DOCKER_NAT_IP}" >> $PHP_INI_DIR/php.ini
 RUN echo 'xdebug.remote_connect_back=0' >> $PHP_INI_DIR/php.ini
 RUN echo 'xdebug.remote_handler=dbgp' >> $PHP_INI_DIR/php.ini
-RUN echo 'xdebug.idekey=docker' >> $PHP_INI_DIR/php.ini
 
 # Imagemagick
 RUN yes '' | pecl install -f imagick
