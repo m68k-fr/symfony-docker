@@ -1,36 +1,50 @@
+# Project language
 language: php
+
+# Allows use container-based infrastructure
 sudo: false
 
+# Start mysql service
+services:
+  - mysql
+
+# Cache composer packages so "composer install" is faster
 cache:
   directories:
     - $HOME/.composer/cache/files
-    - ./bin/.phpunit
 
+# Define an environment variable
 env:
-  global:
-    - SYMFONY_PHPUNIT_DIR=./bin/.phpunit
+  - SYMFONY_VERSION="3.0.*" DB=mysql
 
+# Matrix to test in every php version
 matrix:
+  # Fast finish allows to set the build as "finished" even if the "allow_failures" matrix elements are not finished yet.
   fast_finish: true
   include:
     - php: 7.1.18
     - php: 7.2
-    - php: nightly
+    - php: hhvm
   allow_failures:
-    - php: nightly
+    - php: hhvm
 
 before_install:
-  - '[[ "$TRAVIS_PHP_VERSION" == "nightly" ]] || phpenv config-rm xdebug.ini'
   - composer self-update
 
+
+# Install composer dependencies,
+# Create database, schema and fixtures
 install:
   - composer install
-  #- ./bin/phpunit install
+  - cp app/config/parameters.yml.dist app/config/parameters.yml
+  - php bin/console doctrine:database:create --env=test
+  - php bin/console doctrine:schema:create --env=test
+#  - php bin/console doctrine:fixtures:load -n --env=test
 
 script:
   - ./vendor/bin/simple-phpunit
   # this checks that the source code follows the Symfony Code Syntax rules
-  - '[[ "$TRAVIS_PHP_VERSION" == "nightly" ]] || ./vendor/bin/php-cs-fixer fix --diff --dry-run -v'
+  - ./vendor/bin/php-cs-fixer fix --diff --dry-run -v'
   # this checks that the YAML config files contain no syntax errors
   #- ./bin/console lint:yaml config
   # this checks that the Twig template files contain no syntax errors
