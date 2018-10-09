@@ -1,8 +1,10 @@
 # A Symfony sample project using Docker on Windows
 
+[![Build Status](https://travis-ci.org/ngc5128/symfony-docker.svg?branch=master)](https://travis-ci.org/ngc5128/symfony-docker)
+
 This is a general purpose Symfony project using Docker on Windows.  
-It features a use case website, the kind of small project you could encounter in a web agency.   
-No special features here, the goal was simply to practice and learn the basis.  
+It features a use case website, the usual project you could encounter in a web agency.   
+No special features here, the goal was simply to practice and learn.  
 As usual, the repository is configured for a development environment, please do not use this in a production environment.
 
 ## Technology included
@@ -62,9 +64,10 @@ docker-compose exec symfony composer install
 * database_password: root
 * secret: You can use http://nux.net/secret to generate one.
 
-Build web assets
+## Install Webpack Encore and Build web assets
 
 ```sh
+docker-compose exec symfony yarn install
 docker-compose exec symfony yarn encore dev
 ```
 
