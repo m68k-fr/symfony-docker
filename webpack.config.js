@@ -18,8 +18,8 @@ Encore
      * and one CSS file (e.g. app.scss) if you JavaScript imports CSS.
      */
     .addEntry('app', './app/Resources/assets/js/app.js')
-    //.addEntry('page1', './assets/js/page1.js')
-    //.addEntry('page2', './assets/js/page2.js')
+
+    //.addStyleEntry('bootstrap', './app/Resources/assets/scss/bootstrap.scss')
 
     .cleanupOutputBeforeBuild()
     .enableSourceMaps(!Encore.isProduction())
