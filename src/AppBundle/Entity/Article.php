@@ -72,7 +72,7 @@ class Article
     /**
      * @param mixed $content
      */
-    public function setContent($content): void
+    public function setContent($content)
     {
         $this->content = $content;
     }
@@ -88,7 +88,7 @@ class Article
     /**
      * @param mixed $postedAt
      */
-    public function setPostedAt($postedAt): void
+    public function setPostedAt($postedAt)
     {
         $this->postedAt = $postedAt;
     }
@@ -104,7 +104,7 @@ class Article
     /**
      * @param mixed $active
      */
-    public function setActive($active): void
+    public function setActive($active)
     {
         $this->active = $active;
     }
