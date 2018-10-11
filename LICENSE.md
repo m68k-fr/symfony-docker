@@ -9,6 +9,8 @@ The above copyright notice and this permission notice shall be included in all c
 THE SOFTWARE IS PROVIDED “AS IS”, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
-##  Creative Commons Attribution 3.0 
+##  Forkio Template License 
 
-The template provided in this project includes a derivate work from "Education: Free HTML5 Bootstrap Template eLearning School Websites" by [freehtml5.co](https://freehtml5.co/)
+The template provided in this project includes a derivate work from the [Forkio](https://tympanus.net/codrops/2015/03/12/freebie-forkio-one-page-website-template/) template provided freely by [Codrops](https://tympanus.net/codrops/). This template was made in collaboration with the awesome folks at [Pixel Buddha](https://pixelbuddha.net/) and [PSD2HTML](https://www.psd2html.com/).  
+
+[Licensing & Terms of Use](https://tympanus.net/codrops/licensing/)

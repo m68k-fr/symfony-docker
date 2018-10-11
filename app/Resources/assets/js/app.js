@@ -1,347 +1,58 @@
 
-require('../css/animate.css');
-require('../css/icomoon.css');
 require('../scss/bootstrap.scss');
-require('../css/magnific-popup.css');
-require('../css/owl.carousel.min.css');
-require('../css/owl.theme.default.min.css');
-require('../css/flexslider.css');
-require('../css/pricing.css');
-require('../scss/style.scss');
-
-const $ = require('jquery');
-global.$ = global.jQuery = $;
-require('./jquery.easing.1.3.js');
-require('./bootstrap.min.js');
-require('./jquery.waypoints.min.js');
-require('./jquery.stellar.min.js');
-require('./owl.carousel.min.js');
-require('./jquery.flexslider-min.js');
-require('./jquery.countTo.js');
-require('./jquery.magnific-popup.min.js');
-require('./magnific-popup-options.js');
-require('./simplyCountdown.js');
-
-require ('../images/img_bg_1.jpg');
-require ('../images/img_bg_2.jpg');
-require ('../images/img_bg_3.jpg');
-require ('../images/img_bg_4.jpg');
-require ('../images/loc.png');
-require ('../images/person1.jpg');
-require ('../images/person2.jpg');
-require ('../images/person3.jpg');
-require ('../images/project-1.jpg');
-require ('../images/project-2.jpg');
-require ('../images/project-3.jpg');
-require ('../images/project-4.jpg');
-require ('../images/project-5.jpg');
-require ('../images/project-6.jpg');
-require ('../images/project-7.jpg');
-require ('../images/project-8.jpg');
-require ('../images/project-9.jpg');
-require ('../images/school.jpg');
-require ('../images/staff-1.jpg');
-require ('../images/staff-2.jpg');
-require ('../images/staff-3.jpg');
-require ('../images/work_1.png');
-
-// ********* main js ************
-
-;(function () {
-
-    'use strict';
-
-    var isMobile = {
-        Android: function() {
-            return navigator.userAgent.match(/Android/i);
-        },
-        BlackBerry: function() {
-            return navigator.userAgent.match(/BlackBerry/i);
-        },
-        iOS: function() {
-            return navigator.userAgent.match(/iPhone|iPad|iPod/i);
-        },
-        Opera: function() {
-            return navigator.userAgent.match(/Opera Mini/i);
-        },
-        Windows: function() {
-            return navigator.userAgent.match(/IEMobile/i);
-        },
-        any: function() {
-            return (isMobile.Android() || isMobile.BlackBerry() || isMobile.iOS() || isMobile.Opera() || isMobile.Windows());
-        }
-    };
-
-    var mobileMenuOutsideClick = function() {
-
-        $(document).click(function (e) {
-            var container = $("#fh5co-offcanvas, .js-fh5co-nav-toggle");
-            if (!container.is(e.target) && container.has(e.target).length === 0) {
-
-                if ( $('body').hasClass('offcanvas') ) {
-
-                    $('body').removeClass('offcanvas');
-                    $('.js-fh5co-nav-toggle').removeClass('active');
-
-                }
-
-
-            }
-        });
-
-    };
-
-
-    var offcanvasMenu = function() {
-
-        $('#page').prepend('<div id="fh5co-offcanvas" />');
-        $('#page').prepend('<a href="#" class="js-fh5co-nav-toggle fh5co-nav-toggle fh5co-nav-white"><i></i></a>');
-        var clone1 = $('.menu-1 > ul').clone();
-        $('#fh5co-offcanvas').append(clone1);
-        var clone2 = $('.menu-2 > ul').clone();
-        $('#fh5co-offcanvas').append(clone2);
-
-        $('#fh5co-offcanvas .has-dropdown').addClass('offcanvas-has-dropdown');
-        $('#fh5co-offcanvas')
-            .find('li')
-            .removeClass('has-dropdown');
-
-        // Hover dropdown menu on mobile
-        $('.offcanvas-has-dropdown').mouseenter(function(){
-            var $this = $(this);
-
-            $this
-                .addClass('active')
-                .find('ul')
-                .slideDown(500, 'easeOutExpo');
-        }).mouseleave(function(){
-
-            var $this = $(this);
-            $this
-                .removeClass('active')
-                .find('ul')
-                .slideUp(500, 'easeOutExpo');
-        });
-
-
-        $(window).resize(function(){
-
-            if ( $('body').hasClass('offcanvas') ) {
-
-                $('body').removeClass('offcanvas');
-                $('.js-fh5co-nav-toggle').removeClass('active');
-
-            }
-        });
-    };
-
-
-    var burgerMenu = function() {
-
-        $('body').on('click', '.js-fh5co-nav-toggle', function(event){
-            var $this = $(this);
-
-
-            if ( $('body').hasClass('overflow offcanvas') ) {
-                $('body').removeClass('overflow offcanvas');
-            } else {
-                $('body').addClass('overflow offcanvas');
-            }
-            $this.toggleClass('active');
-            event.preventDefault();
-
-        });
-    };
-
-
-
-    var contentWayPoint = function() {
-        var i = 0;
-        $('.animate-box').waypoint( function( direction ) {
-
-            if( direction === 'down' && !$(this.element).hasClass('animated-fast') ) {
-
-                i++;
-
-                $(this.element).addClass('item-animate');
-                setTimeout(function(){
-
-                    $('body .animate-box.item-animate').each(function(k){
-                        var el = $(this);
-                        setTimeout( function () {
-                            var effect = el.data('animate-effect');
-                            if ( effect === 'fadeIn') {
-                                el.addClass('fadeIn animated-fast');
-                            } else if ( effect === 'fadeInLeft') {
-                                el.addClass('fadeInLeft animated-fast');
-                            } else if ( effect === 'fadeInRight') {
-                                el.addClass('fadeInRight animated-fast');
-                            } else {
-                                el.addClass('fadeInUp animated-fast');
-                            }
-
-                            el.removeClass('item-animate');
-                        },  k * 200, 'easeInOutExpo' );
-                    });
-
-                }, 100);
-
-            }
-
-        } , { offset: '85%' } );
-    };
-
-
-    var dropdown = function() {
-
-        $('.has-dropdown').mouseenter(function(){
-
-            var $this = $(this);
-            $this
-                .find('.dropdown')
-                .css('display', 'block')
-                .addClass('animated-fast fadeInUpMenu');
-
-        }).mouseleave(function(){
-            var $this = $(this);
-
-            $this
-                .find('.dropdown')
-                .css('display', 'none')
-                .removeClass('animated-fast fadeInUpMenu');
-        });
-
-    };
-
-
-    var goToTop = function() {
-
-        $('.js-gotop').on('click', function(event){
-
-            event.preventDefault();
-
-            $('html, body').animate({
-                scrollTop: $('html').offset().top
-            }, 500, 'easeInOutExpo');
-
-            return false;
-        });
-
-        $(window).scroll(function(){
-
-            var $win = $(window);
-            if ($win.scrollTop() > 200) {
-                $('.js-top').addClass('active');
-            } else {
-                $('.js-top').removeClass('active');
-            }
-
-        });
-
-    };
-
-
-    // Loading page
-    var loaderPage = function() {
-        $(".fh5co-loader").fadeOut("slow");
-    };
-
-    var counter = function() {
-        $('.js-counter').countTo({
-            formatter: function (value, options) {
-                return value.toFixed(options.decimals);
-            },
-        });
-    };
-
-    var counterWayPoint = function() {
-        if ($('#fh5co-counter').length > 0 ) {
-            $('#fh5co-counter').waypoint( function( direction ) {
-
-                if( direction === 'down' && !$(this.element).hasClass('animated') ) {
-                    setTimeout( counter , 400);
-                    $(this.element).addClass('animated');
-                }
-            } , { offset: '90%' } );
-        }
-    };
-
-    var sliderMain = function() {
-
-        $('#fh5co-hero .flexslider').flexslider({
-            animation: "slide",
-
-            easing: "swing",
-            direction: "vertical",
-
-            slideshowSpeed: 5000,
-            directionNav: true,
-            start: function(){
-                setTimeout(function(){
-                    $('.slider-text').removeClass('animated fadeInUp');
-                    $('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
-                }, 500);
-            },
-            before: function(){
-                setTimeout(function(){
-                    $('.slider-text').removeClass('animated fadeInUp');
-                    $('.flex-active-slide').find('.slider-text').addClass('animated fadeInUp');
-                }, 500);
-            }
-
-        });
-
-        // $('#fh5co-hero .flexslider .slides > li').css('height', $(window).height());
-        // $(window).resize(function(){
-        // 	$('#fh5co-hero .flexslider .slides > li').css('height', $(window).height());
-        // });
-
-    };
-
-    var parallax = function() {
-
-        if ( !isMobile.any() ) {
-            $(window).stellar({
-                horizontalScrolling: false,
-                hideDistantElements: false,
-                responsive: true
-
-            });
-        }
-    };
-
-    var testimonialCarousel = function(){
-
-        var owl = $('.owl-carousel-fullwidth');
-        owl.owlCarousel({
-            items: 1,
-            loop: true,
-            margin: 0,
-            nav: false,
-            dots: true,
-            smartSpeed: 800,
-            autoHeight: true
-        });
-
-    };
-
-
-    $(function(){
-        mobileMenuOutsideClick();
-        offcanvasMenu();
-        burgerMenu();
-        contentWayPoint();
-        dropdown();
-        goToTop();
-        loaderPage();
-        counterWayPoint();
-        counter();
-        parallax();
-        sliderMain();
-        testimonialCarousel();
-    });
-
-
-}());
-
+require('font-awesome/css/font-awesome.css');
+
+require('../scss/all.scss');
+
+require('jquery');
+require('./bootstrap.js');
+require('./jquery.main.js');
+
+require ('../images/graph-01.svg');
+require ('../images/graph-02.svg');
+require ('../images/graph-03.svg');
+require ('../images/graph-04.svg');
+require ('../images/img-01.png');
+require ('../images/img-decor-01.jpg');
+require ('../images/img-decor-02.jpg');
+require ('../images/img-decor-03.jpg');
+require ('../images/img-social-placeholder-01.png');
+require ('../images/logo.svg');
+require ('../images/logo-cb.png');
+require ('../images/logo-codrops.png');
+require ('../images/logo-pixel.png');
+require ('../images/logo-smashing.png');
+require ('../images/logo-tnw.png');
+require ('../images/logo-w.png');
+require ('../images/user-01.jpg');
+require ('../images/user-02.jpg');
+require ('../images/user-03.jpg');
+
+require ('../favicons/android-chrome-36x36.png');
+require ('../favicons/android-chrome-48x48.png');
+require ('../favicons/android-chrome-72x72.png');
+require ('../favicons/android-chrome-96x96.png');
+require ('../favicons/android-chrome-144x144.png');
+require ('../favicons/android-chrome-192x192.png');
+require ('../favicons/apple-touch-icon-57x57.png');
+require ('../favicons/apple-touch-icon-60x60.png');
+require ('../favicons/apple-touch-icon-72x72.png');
+require ('../favicons/apple-touch-icon-76x76.png');
+require ('../favicons/apple-touch-icon-114x114.png');
+require ('../favicons/apple-touch-icon-120x120.png');
+require ('../favicons/apple-touch-icon-144x144.png');
+require ('../favicons/apple-touch-icon-152x152.png');
+require ('../favicons/apple-touch-icon-180x180.png');
+require ('../favicons/apple-touch-icon-precomposed.png');
+require ('../favicons/apple-touch-icon.png');
+require ('../favicons/favicon-16x16.png');
+require ('../favicons/favicon-32x32.png');
+require ('../favicons/favicon-96x96.png');
+require ('../favicons/favicon-194x194.png');
+require ('../favicons/favicon.ico');
+require ('../favicons/mstile-70x70.png');
+require ('../favicons/mstile-144x144.png');
+require ('../favicons/mstile-150x150.png');
+require ('../favicons/mstile-310x150.png');
+require ('../favicons/mstile-310x310.png');
 

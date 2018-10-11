@@ -1,684 +1,409 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Homepage &mdash; Free Website Template, Free HTML5 Template by freehtml5.co</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="Free HTML5 Website Template by freehtml5.co" />
-    <meta name="keywords" content="free website templates, free html5, free template, free bootstrap, free website template, html5, css3, mobile first, responsive" />
-    <meta name="author" content="freehtml5.co" />
-
-    <!--
-    //////////////////////////////////////////////////////
-
-    FREE HTML5 TEMPLATE
-    DESIGNED & DEVELOPED by FreeHTML5.co
-
-    Website: 		http://freehtml5.co/
-    Email: 			info@freehtml5.co
-    Twitter: 		http://twitter.com/fh5co
-    Facebook: 		https://www.facebook.com/fh5co
-
-    //////////////////////////////////////////////////////
-     -->
-
-    <!-- Facebook and Twitter integration -->
-    <meta property="og:title" content=""/>
-    <meta property="og:image" content=""/>
-    <meta property="og:url" content=""/>
-    <meta property="og:site_name" content=""/>
-    <meta property="og:description" content=""/>
-    <meta name="twitter:title" content="" />
-    <meta name="twitter:image" content="" />
-    <meta name="twitter:url" content="" />
-    <meta name="twitter:card" content="" />
-
-    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:300,400" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('build/app.css') }}">
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage - Forkio: Responsive Bootstrap HTML Template</title>
+    <meta name="description" content="A free responsive website template made exclusively for Codrops by Pixel Buddha and PSD2HTML">
+    <meta name="keywords" content="website template, css3, one page, bootstrap, app template, web app, start-up">
+    <meta name="author" content="Pixel Buddha and PSD2HTML for Codrops">
+    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('build/favicons/apple-touch-icon-57x57.png') }}">
+    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('build/favicons/apple-touch-icon-60x60.png') }}">
+    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('build/favicons/apple-touch-icon-72x72.png') }}">
+    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('build/favicons/apple-touch-icon-76x76.png') }}">
+    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('build/favicons/apple-touch-icon-114x114.png') }}">
+    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('build/favicons/apple-touch-icon-120x120.png') }}">
+    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('build/favicons/apple-touch-icon-144x144.png') }}">
+    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('build/favicons/apple-touch-icon-152x152.png') }}">
+    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('build/favicons/apple-touch-icon-180x180.png') }}">
+    <link rel="icon" type="image/png" href="{{ asset('build/favicons/favicon-32x32.png') }}" sizes="32x32">
+    <link rel="icon" type="image/png" href="{{ asset('build/favicons/favicon-194x194.png') }}" sizes="194x194">
+    <link rel="icon" type="image/png" href="{{ asset('build/favicons/favicon-96x96.png') }}" sizes="96x96">
+    <link rel="icon" type="image/png" href="{{ asset('build/favicons/android-chrome-192x192.png') }}" sizes="192x192">
+    <link rel="icon" type="image/png" href="{{ asset('build/favicons/favicon-16x16.png') }}" sizes="16x16">
+    <link rel="manifest" href="{{ asset('build/favicons/manifest.json') }}">
+    <link rel="shortcut icon" href="{{ asset('build/favicons/favicon.ico') }}">
+    <meta name="msapplication-TileColor" content="#603cba">
+    <meta name="msapplication-TileImage" content="{{ asset('build/favicons/mstile-144x144.png') }}">
+    <meta name="msapplication-config" content="{{ asset('build/favicons/browserconfig.xml') }}">
+    <meta name="theme-color" content="#ffffff">
+    <link rel="stylesheet" href="build/app.css">
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700|Source+Sans+Pro:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
 </head>
 <body>
-
-<div class="fh5co-loader"></div>
-
-<div id="page">
-    <nav class="fh5co-nav" role="navigation">
-        <div class="top">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-12 text-right">
-                        <p class="site">www.yourdomainname.com</p>
-                        <p class="num">Call: +01 123 456 7890</p>
-                        <ul class="fh5co-social">
-                            <li><a href="#"><i class="icon-facebook2"></i></a></li>
-                            <li><a href="#"><i class="icon-twitter2"></i></a></li>
-                            <li><a href="#"><i class="icon-dribbble2"></i></a></li>
-                            <li><a href="#"><i class="icon-github"></i></a></li>
+<div id="wrapper">
+    <header id="header">
+        <div class="container">
+            <div class="logo"><a href="#"><img src="{{ asset('build/images/logo.svg') }}" alt="FORKIO"></a></div>
+            <nav id="nav">
+                <div class="opener-holder">
+                    <a href="#" class="nav-opener"><span></span></a>
+                </div>
+                <a href="http://tympanus.net/codrops/?p=23525" class="btn btn-primary rounded">Buy Now</a>
+                <div class="nav-drop">
+                    <ul>
+                        <li class="active visible-sm visible-xs"><a href="#">Home</a></li>
+                        <li><a href="#">Overview</a></li>
+                        <li><a href="#">About Fork</a></li>
+                        <li><a href="#">Buying Options</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                    <div class="drop-holder visible-sm visible-xs">
+                        <span>Follow Us</span>
+                        <ul class="social-networks">
+                            <li><a class="fa fa-github" href="#"></a></li>
+                            <li><a class="fa fa-twitter" href="#"></a></li>
+                            <li><a class="fa fa-facebook" href="#"></a></li>
                         </ul>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </header>
+    <section class="visual">
+        <div class="container">
+            <div class="text-block">
+                <div class="heading-holder">
+                    <h1>Fork App</h1>
+                </div>
+                <p class="tagline">A real gamechanger in the world of web development</p>
+                <span class="info">Version 2.8 for Mac and Windows</span>
+            </div>
+        </div>
+        <img src="{{ asset('build/images/img-decor-01.jpg') }}" alt="" class="bg-stretch">
+    </section>
+    <section class="main">
+        <div class="container">
+            <div id="cta">
+                <a href="http://tympanus.net/codrops/?p=23525" class="btn btn-primary rounded">Download For Free Now</a>
+                <p>Unlimited 30-Days Trial Period</p>
+            </div>
+            <div class="row">
+                <div class="text-box col-md-offset-1 col-md-10">
+                    <h2>Revolutionary editor</h2>
+                    <p>Aenean cursus imperdiet nisl id fermentum. Aliquam pharetra dui laoreet vulputate dignissim. Sed id metus id quam auctor molestie eget ut augue. </p>
+                    <div class="social-placeholder"><img src="{{ asset('build/images/img-social-placeholder-01.png') }}" height="26" width="365" alt=""></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="area">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5">
+                    <h2 class="visible-xs visible-sm text-primary">&lt;Here is what you get&gt;</h2>
+                    <ul class="visual-list">
+                        <li>
+                            <div class="img-holder">
+                                <img src="{{ asset('build/images/graph-04.svg') }}" width="110" alt="">
+                            </div>
+                            <div class="text-holder">
+                                <h3>Created to Make A Better Web</h3>
+                                <p>Aenean cursus imperdiet nisl id fermentum. Aliquam pharetra dui laoreet vulputate dignissim. Sed id metus id quam auctor molestie eget ut augue. </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img-holder">
+                                <img class="pull-left" src="{{ asset('build/images/graph-03.svg') }}" width="90" alt="">
+                            </div>
+                            <div class="text-holder">
+                                <h3>Infinite Customization</h3>
+                                <p>Maecenas eu dictum felis, a dignissim nibh. Mauris rhoncus felis odio, ut volutpat massa placerat ac. Curabitur dapibus iaculis mi gravida luctus. Aliquam erat volutpat. </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img-holder">
+                                <img src="{{ asset('build/images/graph-02.svg') }}" height="84" alt="">
+                            </div>
+                            <div class="text-holder">
+                                <h3>Experimental Features</h3>
+                                <p>Maecenas eu dictum felis, a dignissim nibh. Mauris rhoncus felis odio, ut volutpat massa placerat ac. Curabitur dapibus iaculis mi gravida luctus. Aliquam erat volutpat. </p>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="img-holder">
+                                <img src="{{ asset('build/images/graph-01.svg') }}" height="71" alt="">
+                            </div>
+                            <div class="text-holder">
+                                <h3>Time-Saving Power Tools</h3>
+                                <p>Maecenas eu dictum felis, a dignissim nibh. Mauris rhoncus felis odio, ut volutpat massa placerat ac. Curabitur dapibus iaculis mi gravida luctus. Aliquam erat volutpat. </p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <div class="col-md-7">
+                    <div class="slide-holder">
+                        <h2 class="hidden-xs hidden-sm text-primary">&lt;Here is what you get&gt;</h2>
+                        <div class="img-slide scroll-trigger"><img src="{{ asset('build/images/img-01.png') }}" height="624" width="1184" alt=""></div>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="top-menu">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xs-2">
-                        <div id="fh5co-logo"><a href="index.html"><i class="icon-study"></i>Educ<span>.</span></a></div>
+    </section>
+    <section class="main">
+        <div class="container">
+            <div class="block-holder">
+                <div class="block-frame">
+                    <div class="cycle-gallery">
+                        <div class="mask">
+                            <div class="slideset">
+                                <div class="slide">
+                                    <div class="img-box">
+                                        <div class="img-holder"><img src="{{ asset('build/images/user-01.jpg') }}" height="85" width="85" alt=""></div>
+                                        <div class="text-holder">
+                                            <h3>Steven Walters</h3>
+                                            <a href="#">@DoctorS</a>
+                                        </div>
+                                    </div>
+                                    <p><a href="#">@Pixelbuddha</a> Suspendisse sodales sem est, in scelerisque felis scelerisque in. Aenean faucibus mollis risus. Praesent sit amet erat eget eros.</p>
+                                    <em class="date">2 hours ago</em>
+                                </div>
+                                <div class="slide">
+                                    <div class="img-box">
+                                        <div class="img-holder"><img src="{{ asset('build/images/user-02.jpg') }}" height="85" width="85" alt=""></div>
+                                        <div class="text-holder">
+                                            <h3>Shane Jennings</h3>
+                                            <a href="#">@shanejen</a>
+                                        </div>
+                                    </div>
+                                    <p><a href="#">@PSD2HTML</a> Ut id porta quam. Morbi sit amet magna lobortis, hendrerit lorem et, tincidunt lorem. Sed vulputate condimentum lorem vel dapibus</p>
+                                    <em class="date">5 hours ago</em>
+                                </div>
+                                <div class="slide">
+                                    <div class="img-box">
+                                        <div class="img-holder"><img src="{{ asset('build/images/user-03.jpg') }}" height="85" width="85" alt=""></div>
+                                        <div class="text-holder">
+                                            <h3>Rafael Belverde</h3>
+                                            <a href="#">@bellraffi</a>
+                                        </div>
+                                    </div>
+                                    <p><a href="#">@codrops</a> Curabitur nec dapibus ligula. In eget ante in nisi laoreet accumsan pretium vitae est. Nulla lacinia efficitur dui eget accumsan?</p>
+                                    <em class="date">1 day ago</em>
+                                </div>
+                            </div>
+                        </div>
+                        <a class="btn-prev" href="#"><i class="fa fa-chevron-left"></i></a>
+                        <a class="btn-next" href="#"><i class="fa fa-chevron-right"></i></a>
                     </div>
-                    <div class="col-xs-10 text-right menu-1">
+                </div>
+                <div class="block-frame">
+                    <ul class="cta-list">
+                        <li>
+                            <a href="#" class="btn btn-default"><i class="fa fa-github"></i> GitHub</a>
+                            <p>7 352 Followers</p>
+                        </li>
+                        <li>
+                            <a href="#" class="btn btn-info"><i class="fa fa-twitter"></i> Twitter</a>
+                            <p>136 312 Followers</p>
+                        </li>
+                        <li>
+                            <a href="#" class="btn btn-blue"><i class="fa fa-facebook"></i> Facebook</a>
+                            <p>218 092 Subscribers</p>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="visual-container">
+        <div class="visual-area">
+            <div class="container">
+                <h2>People Are Talking About Fork</h2>
+                <ul class="testimonials">
+                    <li>
+                        <div class="img-holder"><a href="#"><img src="{{ asset('build/images/logo-smashing.png') }}" height="43" width="165" alt="smashing magazine"></a></div>
+                        <p><em>Sed vestibulum scelerisque urna, eu finibus leo facilisis sit amet. Proin id dignissim magna. Sed varius urna et pulvinar venenatis. </em></p>
+                    </li>
+                    <li>
+                        <div class="img-holder"><a href="#"><img src="{{ asset('build/images/logo-codrops.png') }}" height="50" width="148" alt="codrops"></a></div>
+                        <p><em>Donec euismod dolor ut ultricies consequat. Vivamus urna ipsum, rhoncus molestie neque ac, mollis eleifend nibh.</em></p>
+                    </li>
+                    <li>
+                        <div class="img-holder"><a href="#"><img src="{{ asset('build/images/logo-w.png') }}" height="64" width="64" alt="w"></a></div>
+                        <p><em>In efficitur in velit et tempus. Duis nec odio dapibus, suscipit erat fringilla, imperdiet nibh. Morbi tempus auctor felis ac vehicula. </em></p>
+                    </li>
+                    <li>
+                        <div class="img-holder"><a href="#"><img src="{{ asset('build/images/logo-pixel.png') }}" height="24" width="225" alt="Pixel Buddha"></a></div>
+                        <p><em>Sed vestibulum scelerisque urna, eu finibus leo facilisis sit amet. Proin id dignissim magna. Sed varius urna et pulvinar venenatis. </em></p>
+                    </li>
+                    <li>
+                        <div class="img-holder"><a href=""><img src="{{ asset('build/images/logo-cb.png') }}" height="34" width="166" alt="creative bloq"></a></div>
+                        <p><em>Praesent ut eros tristique, malesuada lectus vel, lobortis massa. Nulla faucibus lorem id arcu consequat faucibus. </em></p>
+                    </li>
+                    <li>
+                        <div class="img-holder"><a href="#"><img src="{{ asset('build/images/logo-tnw.png') }}" height="34" width="108" alt="tnw"></a></div>
+                        <p><em>Fusce pharetra erat id odio blandit, nec pharetra eros venenatis. Pellentesque porttitor cursus massa et vestibulum.</em></p>
+                    </li>
+                </ul>
+            </div>
+            <img src="{{ asset('build/images/img-decor-02.jpg') }}" height="764" width="1380" alt="" class="bg-stretch">
+        </div>
+        <div class="visual-area">
+            <div class="container">
+                <h2>Fork Subscription Pricing</h2>
+                <div class="pricing-tables">
+                    <div class="plan">
+                        <div class="head">
+                            <h3>Students</h3>
+                        </div>
+                        <div class="price">
+                            <span class="price-main"><span class="symbol">$</span>8</span>
+                            <span class="price-additional">per month</span>
+                        </div>
+                        <ul class="item-list">
+                            <li>Personal License</li>
+                        </ul>
+                        <button type="button" class="btn btn-default rounded">purchase</button>
+                    </div>
+                    <div class="plan">
+                        <div class="head">
+                            <h3>professional</h3> </div>
+                        <div class="price">
+                            <span class="price-main"><span class="symbol">$</span>19</span>
+                            <span class="price-additional">per month</span>
+                        </div>
+                        <ul class="item-list">
+                            <li>Professional License</li>
+                            <li>Email Support</li>
+                        </ul>
+                        <button type="button" class="btn btn-default rounded">purchase</button>
+                    </div>
+                    <div class="plan recommended">
+                        <div class="head">
+                            <h3>agency</h3> </div>
+                        <div class="price">
+                            <span class="price-main"><span class="symbol">$</span>49</span>
+                            <span class="price-additional">per month</span>
+                        </div>
+                        <ul class="item-list">
+                            <li>1-12 Team Members</li>
+                            <li>Phone Support</li>
+                        </ul>
+                        <button type="button" class="btn btn-default rounded">purchase</button>
+                    </div>
+                    <div class="plan">
+                        <div class="head">
+                            <h3>enterprise</h3> </div>
+                        <div class="price">
+                            <span class="price-main"><span class="symbol">$</span>79</span>
+                            <span class="price-additional">per month</span>
+                        </div>
+                        <ul class="item-list">
+                            <li>Unlimited Team Members</li>
+                            <li>24/ 7 Phone Support</li>
+                        </ul>
+                        <button type="button" class="btn btn-default rounded">purchase</button>
+                    </div>
+                </div>
+                <p class="silent">Duis lobortis arcu sed arcu tincidunt feugiat. Nulla nisi mauris, facilisis vitae aliquet id, imperdiet quis nibh. Donec eget elit eu libero tincidunt consequat nec elementum orci. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. </p>
+            </div>
+            <img src="{{ asset('build/images/img-decor-03.jpg') }}" height="1175" width="1380" alt="" class="bg-stretch">
+        </div>
+    </section>
+    <section class="area">
+        <div class="container">
+            <div class="subscribe">
+                <h3>Subscribe to Our Newsletter</h3>
+                <form class="form-inline">
+                    <button type="submit" class="btn btn-primary rounded">Subscribe</button>
+                    <div class="form-group">
+                        <input type="email" class="form-control rounded" id="exampleInputEmail2" placeholder="Email...">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </section>
+    <section class="main">
+        <div class="container">
+            <div class="content">
+                <div class="row">
+                    <div class="col-md-4">
+                        <h3>New in Release 2.8</h3>
+                        <h4>Fully Available: Live Preview Support for Multiple Browsers</h4>
+                        <p>Morbi faucibus ante ipsum, a tincidunt libero posuere et. Etiam tempor tortor at odio condimentum, sit amet fringilla ligula maximus. Mauris venenatis nisl nisi, et dictum dui aliquet nec. Sed erat, nec aliquam vel, aliquam ac felis. </p>
+                        <h4>Improved Support for Typing </h4>
+                        <p>Nulla purus quam, pulvinar sed ante et, feugiat maximus velit. Donec eu elit mauris. </p>
+                        <h4>Improved Stability</h4>
+                        <p>Proin id ligula eget massa tincidunt molestie. Morbi urna lectus, molestie vel quam vel, iaculis fermentum nunc. Morbi imperdiet, leo in interdum pretium.</p>
+                        <div class="btn-holder">
+                            <a href="#" class="btn btn-link">Go to Release Log</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>Popular Extensions</h3>
+                        <h4><a href="#">Custom Themes 1.1</a></h4>
+                        <p>Etiam viverra vulputate diam, pulvinar cursus augue egestas ullamcorper. </p>
+                        <h4><a href="#">Filter Forge</a></h4>
+                        <p>Nulla purus quam, pulvinar sed et, feugiat maximus velit.</p>
+                        <h4><a href="#">WebZap</a></h4>
+                        <p>Morbi imperdiet, leo in interdum pretium, elit eros dapibus velit, eu posuere quam diam vitae orci. Suspendisse interdum accumsan magna vitae commodo.</p>
+                        <h4><a href="#">Renamy</a></h4>
+                        <p>Vivamus consectetur suscipit elit, ut lacinia diam elementum et.</p>
+                        <div class="btn-holder">
+                            <a href="#" class="btn btn-link">Go to Marketplace</a>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <h3>New From the Blog</h3>
+                        <h4><a href="#">Morbi imperdiet, leo in interdum pretium.</a></h4>
+                        <time class="date" datetime="2015-02-18">February 18, 2015</time>
+                        <h4><a href="#">Donec orci ante, porta vel nulla quis, aliquet hendrerit leo.</a></h4>
+                        <time class="date" datetime="2015-02-12">February 12, 2015</time>
+                        <h4><a href="#">Suspendisse egestas vulputate luctus.</a></h4>
+                        <time class="date" datetime="2015-02-06">February 6, 2015</time>
+                        <h4><a href="#">Quisque varius ante lorem, eget pretium purus hendrerit a egestas. </a></h4>
+                        <time class="date" datetime="2015-02-02">February 2, 2015</time>
+                        <h4><a href="#">Phasellus in augue risus. </a></h4>
+                        <time class="date" datetime="2015-01-23">January 23, 2015</time>
+                        <div class="btn-holder">
+                            <a href="#" class="btn btn-link">Go to Blog</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-holder">
+                <div class="row">
+                    <div class="col-md-4">
+                        <div class="logo"><a href="#"><img src="{{ asset('build/images/logo.svg') }}" alt="FORKIO"></a></div>
+                        <p>Lorem ipsum dolor sit amet, feugiat delicat<br /> liberavisse id cum no quo.</p>
+                    </div>
+                    <div class="col-md-2">
+                        <h4>Navigation</h4>
                         <ul>
-                            <li class="active"><a href="index.html">Home</a></li>
-                            <li><a href="courses.html">Courses</a></li>
-                            <li><a href="teacher.html">Teacher</a></li>
-                            <li><a href="about.html">About</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                            <li class="has-dropdown">
-                                <a href="blog.html">Blog</a>
-                                <ul class="dropdown">
-                                    <li><a href="#">Web Design</a></li>
-                                    <li><a href="#">eCommerce</a></li>
-                                    <li><a href="#">Branding</a></li>
-                                    <li><a href="#">API</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="contact.html">Contact</a></li>
-                            <li class="btn-cta"><a href="#"><span>Login</span></a></li>
-                            <li class="btn-cta"><a href="#"><span>Create a Course</span></a></li>
+                            <li><a href="#">Home</a></li>
+                            <li><a href="#">Overview</a></li>
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Buying Options</a></li>
+                            <li><a href="#">Support</a></li>
                         </ul>
                     </div>
-                </div>
-
-            </div>
-        </div>
-    </nav>
-
-    <aside id="fh5co-hero">
-        <div class="flexslider">
-            <ul class="slides">
-                <li style="background-image: url({{ asset('build/images/img_bg_1.jpg') }});">
-                    <div class="overlay-gradient"></div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 text-center slider-text">
-                                <div class="slider-text-inner">
-                                    <h1>The Roots of Education are Bitter, But the Fruit is Sweet</h1>
-                                    <h2>Brought to you by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>
-                                    <p><a class="btn btn-primary btn-lg" href="#">Start Learning Now!</a></p>
-                                </div>
-                            </div>
+                    <div class="col-md-3">
+                        <div class="text-holder">
+                            <strong class="phone"><a href="tel:3475677890">347 567 78 90</a></strong>
+                            <span class="available">Available from 12PM - 18PM</span>
+                            <h4>New York, NY</h4>
+                            <address>560 Judah St &amp; 15th Ave, Apt 5 San Francisco, CA, 230903</address>
                         </div>
                     </div>
-                </li>
-                <li style="background-image: url({{ asset('build/images/img_bg_2.jpg') }});">
-                    <div class="overlay-gradient"></div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 text-center slider-text">
-                                <div class="slider-text-inner">
-                                    <h1>The Great Aim of Education is not Knowledge, But Action</h1>
-                                    <h2>Brought to you by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>
-                                    <p><a class="btn btn-primary btn-lg btn-learn" href="#">Start Learning Now!</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li style="background-image: url({{ asset('build/images/img_bg_3.jpg') }});">
-                    <div class="overlay-gradient"></div>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-md-8 col-md-offset-2 text-center slider-text">
-                                <div class="slider-text-inner">
-                                    <h1>We Help You to Learn New Things</h1>
-                                    <h2>Brought to you by <a href="http://freehtml5.co/" target="_blank">freehtml5.co</a></h2>
-                                    <p><a class="btn btn-primary btn-lg btn-learn" href="#">Start Learning Now!</a></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-    </aside>
-
-    <div id="fh5co-course-categories">
-        <div class="container">
-            <div class="row animate-box">
-                <div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-                    <h2>Course categories</h2>
-                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 col-sm-6 text-center animate-box">
-                    <div class="services">
-						<span class="icon">
-							<i class="icon-shop"></i>
-						</span>
-                        <div class="desc">
-                            <h3><a href="#">Business</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 text-center animate-box">
-                    <div class="services">
-						<span class="icon">
-							<i class="icon-heart4"></i>
-						</span>
-                        <div class="desc">
-                            <h3><a href="#">Health &amp; Psychology</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 text-center animate-box">
-                    <div class="services">
-						<span class="icon">
-							<i class="icon-banknote"></i>
-						</span>
-                        <div class="desc">
-                            <h3><a href="#">Accounting</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 text-center animate-box">
-                    <div class="services">
-						<span class="icon">
-							<i class="icon-lab2"></i>
-						</span>
-                        <div class="desc">
-                            <h3><a href="#">Science &amp; Technology</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 text-center animate-box">
-                    <div class="services">
-						<span class="icon">
-							<i class="icon-photo"></i>
-						</span>
-                        <div class="desc">
-                            <h3><a href="#">Art &amp; Media</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 text-center animate-box">
-                    <div class="services">
-						<span class="icon">
-							<i class="icon-home-outline"></i>
-						</span>
-                        <div class="desc">
-                            <h3><a href="#">Real Estate</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 text-center animate-box">
-                    <div class="services">
-						<span class="icon">
-							<i class="icon-bubble3"></i>
-						</span>
-                        <div class="desc">
-                            <h3><a href="#">Language</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 text-center animate-box">
-                    <div class="services">
-						<span class="icon">
-							<i class="icon-world"></i>
-						</span>
-                        <div class="desc">
-                            <h3><a href="#">Web &amp; Programming</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
+                    <div class="col-md-3">
+                        <div class="text-frame">
+                            <h4>Info</h4>
+                            <p>Wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis nisl ut aliquip ex commodo consequat. Autem vel hendrerit iriure dolor in hendrerit.</p>
                         </div>
                     </div>
                 </div>
             </div>
-        </div>
-    </div>
-
-    <div id="fh5co-counter" class="fh5co-counters" style="background-image: url({{ asset('build/images/img_bg_4.jpg') }});" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="row">
-                        <div class="col-md-3 col-sm-6 text-center animate-box">
-                            <span class="icon"><i class="icon-world"></i></span>
-                            <span class="fh5co-counter js-counter" data-from="0" data-to="3297" data-speed="5000" data-refresh-interval="50"></span>
-                            <span class="fh5co-counter-label">Foreign Followers</span>
-                        </div>
-                        <div class="col-md-3 col-sm-6 text-center animate-box">
-                            <span class="icon"><i class="icon-study"></i></span>
-                            <span class="fh5co-counter js-counter" data-from="0" data-to="3700" data-speed="5000" data-refresh-interval="50"></span>
-                            <span class="fh5co-counter-label">Students Enrolled</span>
-                        </div>
-                        <div class="col-md-3 col-sm-6 text-center animate-box">
-                            <span class="icon"><i class="icon-bulb"></i></span>
-                            <span class="fh5co-counter js-counter" data-from="0" data-to="5034" data-speed="5000" data-refresh-interval="50"></span>
-                            <span class="fh5co-counter-label">Classes Complete</span>
-                        </div>
-                        <div class="col-md-3 col-sm-6 text-center animate-box">
-                            <span class="icon"><i class="icon-head"></i></span>
-                            <span class="fh5co-counter js-counter" data-from="0" data-to="1080" data-speed="5000" data-refresh-interval="50"></span>
-                            <span class="fh5co-counter-label">Certified Teachers</span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="fh5co-course">
-        <div class="container">
-            <div class="row animate-box">
-                <div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-                    <h2>Our Course</h2>
-                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 animate-box">
-                    <div class="course">
-                        <a href="#" class="course-img" style="background-image: url({{ asset('build/images/project-1.jpg') }});">
-                        </a>
-                        <div class="desc">
-                            <h3><a href="#">Web Master</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                            <span><a href="#" class="btn btn-primary btn-sm btn-course">Take A Course</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 animate-box">
-                    <div class="course">
-                        <a href="#" class="course-img" style="background-image: url({{ asset('build/images/project-2.jpg') }});">
-                        </a>
-                        <div class="desc">
-                            <h3><a href="#">Business &amp; Accounting</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                            <span><a href="#" class="btn btn-primary btn-sm btn-course">Take A Course</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 animate-box">
-                    <div class="course">
-                        <a href="#" class="course-img" style="background-image: url({{ asset('build/images/project-3.jpg') }});">
-                        </a>
-                        <div class="desc">
-                            <h3><a href="#">Science &amp; Technology</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                            <span><a href="#" class="btn btn-primary btn-sm btn-course">Take A Course</a></span>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6 animate-box">
-                    <div class="course">
-                        <a href="#" class="course-img" style="background-image: url({{ asset('build/images/project-3.jpg') }});">
-                        </a>
-                        <div class="desc">
-                            <h3><a href="#">Health &amp; Psychology</a></h3>
-                            <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                            <span><a href="#" class="btn btn-primary btn-sm btn-course">Take A Course</a></span>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="fh5co-testimonial" style="background-image: url({{ asset('build/images/school.jpg') }});">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row animate-box">
-                <div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-                    <h2><span>Testimonials</span></h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-10 col-md-offset-1">
-                    <div class="row animate-box">
-                        <div class="owl-carousel owl-carousel-fullwidth">
-                            <div class="item">
-                                <div class="testimony-slide active text-center">
-                                    <div class="user" style="background-image: url({{ asset('build/images/person1.jpg') }});"></div>
-                                    <span>Mary Walker<br><small>Students</small></span>
-                                    <blockquote>
-                                        <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimony-slide active text-center">
-                                    <div class="user" style="background-image: url({{ asset('build/images/person2.jpg') }});"></div>
-                                    <span>Mike Smith<br><small>Students</small></span>
-                                    <blockquote>
-                                        <p>&ldquo;Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                                    </blockquote>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="testimony-slide active text-center">
-                                    <div class="user" style="background-image: url({{ asset('build/images/person3.jpg') }});"></div>
-                                    <span>Rita Jones<br><small>Teacher</small></span>
-                                    <blockquote>
-                                        <p>&ldquo;Far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.&rdquo;</p>
-                                    </blockquote>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="fh5co-blog">
-        <div class="container">
-            <div class="row animate-box">
-                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <h2>Blog &amp; Events</h2>
-                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                </div>
-            </div>
-            <div class="row row-padded-mb">
-                <div class="col-md-4 animate-box">
-                    <div class="fh5co-event">
-                        <div class="date text-center"><span>15<br>Mar.</span></div>
-                        <h3><a href="#">USA, International Triathlon Event</a></h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#">Read More</a></p>
-                    </div>
-                </div>
-                <div class="col-md-4 animate-box">
-                    <div class="fh5co-event">
-                        <div class="date text-center"><span>15<br>Mar.</span></div>
-                        <h3><a href="#">USA, International Triathlon Event</a></h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#">Read More</a></p>
-                    </div>
-                </div>
-                <div class="col-md-4 animate-box">
-                    <div class="fh5co-event">
-                        <div class="date text-center"><span>15<br>Mar.</span></div>
-                        <h3><a href="#">New Device Develope by Microsoft</a></h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        <p><a href="#">Read More</a></p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 col-md-4">
-                    <div class="fh5co-blog animate-box">
-                        <a href="#" class="blog-img-holder" style="background-image: url({{ asset('build/images/project-1.jpg') }});"></a>
-                        <div class="blog-text">
-                            <h3><a href="#">Healty Lifestyle &amp; Living</a></h3>
-                            <span class="posted_on">March. 15th</span>
-                            <span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="fh5co-blog animate-box">
-                        <a href="#" class="blog-img-holder" style="background-image: url({{ asset('build/images/project-2.jpg') }});"></a>
-                        <div class="blog-text">
-                            <h3><a href="#">Healty Lifestyle &amp; Living</a></h3>
-                            <span class="posted_on">March. 15th</span>
-                            <span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-4">
-                    <div class="fh5co-blog animate-box">
-                        <a href="#" class="blog-img-holder" style="background-image: url({{ asset('build/images/project-3.jpg') }});"></a>
-                        <div class="blog-text">
-                            <h3><a href="#">Healty Lifestyle &amp; Living</a></h3>
-                            <span class="posted_on">March. 15th</span>
-                            <span class="comment"><a href="">21<i class="icon-speech-bubble"></i></a></span>
-                            <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="fh5co-pricing" class="fh5co-bg-section">
-        <div class="container">
-            <div class="row animate-box">
-                <div class="col-md-6 col-md-offset-3 text-center fh5co-heading">
-                    <h2>Plan &amp; Pricing</h2>
-                    <p>Dignissimos asperiores vitae velit veniam totam fuga molestias accusamus alias autem provident. Odit ab aliquam dolor eius.</p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="pricing pricing--rabten">
-                    <div class="col-md-4 animate-box">
-                        <div class="pricing__item">
-                            <div class="wrap-price">
-                                <!-- <div class="icon icon-user2"></div> -->
-                                <h3 class="pricing__title">Trial</h3>
-                                <!-- <p class="pricing__sentence">Single user license</p> -->
-                            </div>
-                            <div class="pricing__price">
-                        <span class="pricing__anim pricing__anim--1">
-								<span class="pricing__currency">$</span>0
-                        </span>
-                                <span class="pricing__anim pricing__anim--2">
-								<span class="pricing__period">per year</span>
-                        </span>
-                            </div>
-                            <div class="wrap-price">
-                                <ul class="pricing__feature-list">
-                                    <li class="pricing__feature">One Day Trial</li>
-                                    <li class="pricing__feature">Limited Courses</li>
-                                    <li class="pricing__feature">Free 3 Lessons</li>
-                                    <li class="pricing__feature">No Supporter</li>
-                                    <li class="pricing__feature">No Tutorial</li>
-                                    <li class="pricing__feature">No Ebook</li>
-                                    <li class="pricing__feature">Limited Registered User</li>
-                                </ul>
-                                <button class="pricing__action">Choose plan</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 animate-box">
-                        <div class="pricing__item">
-                            <div class="wrap-price">
-                                <!-- <div class="icon icon-store"></div> -->
-                                <h3 class="pricing__title">Silver</h3>
-                                <!-- <p class="pricing__sentence">Up to 5 users</p> -->
-                            </div>
-                            <div class="pricing__price">
-                        <span class="pricing__anim pricing__anim--1">
-								<span class="pricing__currency">$</span>79
-                        </span>
-                                <span class="pricing__anim pricing__anim--2">
-								<span class="pricing__period">per year</span>
-                        </span>
-                            </div>
-                            <div class="wrap-price">
-                                <ul class="pricing__feature-list">
-                                    <li class="pricing__feature">One Year Standard Access</li>
-                                    <li class="pricing__feature">Limited Courses</li>
-                                    <li class="pricing__feature">300+ Lessons</li>
-                                    <li class="pricing__feature">Random Supporter</li>
-                                    <li class="pricing__feature">View Only Ebook</li>
-                                    <li class="pricing__feature">Standard Tutorials</li>
-                                    <li class="pricing__feature">Unlimited Registered User</li>
-                                </ul>
-                                <button class="pricing__action">Choose plan</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 animate-box">
-                        <div class="pricing__item">
-                            <div class="wrap-price">
-                                <!-- <div class="icon icon-home2"></div> -->
-                                <h3 class="pricing__title">Gold</h3>
-                                <!-- <p class="pricing__sentence">Unlimited users</p> -->
-                            </div>
-                            <div class="pricing__price">
-                        <span class="pricing__anim pricing__anim--1">
-								<span class="pricing__currency">$</span>499
-                        </span>
-                                <span class="pricing__anim pricing__anim--2">
-								<span class="pricing__period">per year</span>
-                        </span>
-                            </div>
-                            <div class="wrap-price">
-                                <ul class="pricing__feature-list">
-                                    <li class="pricing__feature">Life Time Access</li>
-                                    <li class="pricing__feature">Unlimited All Courses</li>
-                                    <li class="pricing__feature">7000+ Lessons &amp; Growing</li>
-                                    <li class="pricing__feature">Free Supporter</li>
-                                    <li class="pricing__feature">Free Ebook Downloads</li>
-                                    <li class="pricing__feature">Premium Tutorials</li>
-                                    <li class="pricing__feature">Unlimited Registered User</li>
-                                </ul>
-                                <button class="pricing__action">Choose plan</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="fh5co-register" style="background-image: url({{ asset('build/images/img_bg_2.jpg') }});">
-        <div class="overlay"></div>
-        <div class="row">
-            <div class="col-md-8 col-md-offset-2 animate-box">
-                <div class="date-counter text-center">
-                    <h2>Get 400 of Online Courses for Free</h2>
-                    <h3>By Mike Smith</h3>
-                    <div class="simply-countdown simply-countdown-one"></div>
-                    <p><strong>Limited Offer, Hurry Up!</strong></p>
-                    <p><a href="#" class="btn btn-primary btn-lg btn-reg">Register Now!</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div id="fh5co-gallery" class="fh5co-bg-section">
-        <div class="row text-center">
-            <h2><span>Instagram Gallery</span></h2>
-        </div>
-        <div class="row">
-            <div class="col-md-3 col-padded">
-                <a href="#" class="gallery" style="background-image: url({{ asset('build/images/project-5.jpg') }});"></a>
-            </div>
-            <div class="col-md-3 col-padded">
-                <a href="#" class="gallery" style="background-image: url({{ asset('build/images/project-2.jpg') }});"></a>
-            </div>
-            <div class="col-md-3 col-padded">
-                <a href="#" class="gallery" style="background-image: url({{ asset('build/images/project-3.jpg') }});"></a>
-            </div>
-            <div class="col-md-3 col-padded">
-                <a href="#" class="gallery" style="background-image: url({{ asset('build/images/project-4.jpg') }});"></a>
-            </div>
-        </div>
-    </div>
-
-    <footer id="fh5co-footer" role="contentinfo" style="background-image: url({{ asset('build/images/img_bg_4.jpg') }});">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row row-pb-md">
-                <div class="col-md-3 fh5co-widget">
-                    <h3>About Education</h3>
-                    <p>Facilis ipsum reprehenderit nemo molestias. Aut cum mollitia reprehenderit. Eos cumque dicta adipisci architecto culpa amet.</p>
-                </div>
-                <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
-                    <h3>Learning</h3>
-                    <ul class="fh5co-footer-links">
-                        <li><a href="#">Course</a></li>
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Contact</a></li>
-                        <li><a href="#">Terms</a></li>
-                        <li><a href="#">Meetups</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
-                    <h3>Learn &amp; Grow</h3>
-                    <ul class="fh5co-footer-links">
-                        <li><a href="#">Blog</a></li>
-                        <li><a href="#">Privacy</a></li>
-                        <li><a href="#">Testimonials</a></li>
-                        <li><a href="#">Handbook</a></li>
-                        <li><a href="#">Held Desk</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
-                    <h3>Engage us</h3>
-                    <ul class="fh5co-footer-links">
-                        <li><a href="#">Marketing</a></li>
-                        <li><a href="#">Visual Assistant</a></li>
-                        <li><a href="#">System Analysis</a></li>
-                        <li><a href="#">Advertise</a></li>
-                    </ul>
-                </div>
-
-                <div class="col-md-2 col-sm-4 col-xs-6 col-md-push-1 fh5co-widget">
-                    <h3>Legal</h3>
-                    <ul class="fh5co-footer-links">
-                        <li><a href="#">Find Designers</a></li>
-                        <li><a href="#">Find Developers</a></li>
-                        <li><a href="#">Teams</a></li>
-                        <li><a href="#">Advertise</a></li>
-                        <li><a href="#">API</a></li>
-                    </ul>
-                </div>
-            </div>
-
-            <div class="row copyright">
-                <div class="col-md-12 text-center">
-                    <p>
-                        <small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
-                        <small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FreeHTML5.co</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a> &amp; <a href="https://www.pexels.com/" target="_blank">Pexels</a></small>
-                    </p>
-                </div>
-            </div>
-
         </div>
     </footer>
 </div>
-
-<div class="gototop js-top">
-    <a href="#" class="js-gotop"><i class="icon-arrow-up"></i></a>
-</div>
-
-<script src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
+<!--<script src="js/jquery-1.11.2.min.js"></script>
+<script src="js/bootstrap.js"></script>
+<script src="js/jquery.main.js"></script>-->
 <script src="{{ asset('build/app.js') }}"></script>
 
-<script>
-
-    var d = new Date(new Date().getTime() + 1000 * 120 * 120 * 2000);
-
-    // default example
-    simplyCountdown('.simply-countdown-one', {
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate()
-    });
-
-    //jQuery example
-    $('#simply-countdown-losange').simplyCountdown({
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate(),
-        enableUtc: false
-    });
-</script>
 </body>
 </html>
-
