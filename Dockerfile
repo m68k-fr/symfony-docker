@@ -2,11 +2,6 @@ FROM php:7.1-apache
 
 LABEL maintainer="llemoullec@gmail.com"
  
-ARG DOCKER_NAT_IP
-
-ENV ICU_RELEASE 62.1
-ENV NODE_VERSION 8.12.0
-ENV YARN_VERSION 1.9.4
 
 RUN apt-get update && \
     apt-get install --yes --assume-yes \
@@ -58,13 +53,10 @@ RUN docker-php-ext-install zip
 RUN docker-php-ext-configure hash --with-mhash
 
 # Xdebug
+ARG DOCKER_NAT_IP
 RUN pecl install xdebug && docker-php-ext-enable xdebug
-RUN echo 'xdebug.remote_enable=1' >> $PHP_INI_DIR/php.ini
-RUN echo 'xdebug.remote_port=9000' >> $PHP_INI_DIR/php.ini
-RUN echo 'xdebug.remote_autostart=1' >> $PHP_INI_DIR/php.ini
-RUN echo "xdebug.remote_host=${DOCKER_NAT_IP}" >> $PHP_INI_DIR/php.ini
-RUN echo 'xdebug.remote_connect_back=0' >> $PHP_INI_DIR/php.ini
-RUN echo 'xdebug.remote_handler=dbgp' >> $PHP_INI_DIR/php.ini
+COPY dockerfiles/conf/xdebug.ini $PHP_INI_DIR/conf.d/
+RUN echo "xdebug.remote_host=${DOCKER_NAT_IP}" >> $PHP_INI_DIR/conf.d/xdebug.ini
 
 # Imagemagick
 RUN yes '' | pecl install -f imagick
@@ -75,6 +67,7 @@ RUN docker-php-ext-configure opcache --enable-opcache && docker-php-ext-install 
 COPY dockerfiles/conf/opcache.ini $PHP_INI_DIR/conf.d/
 
 # Update ICU data bundled to the symfony required version
+ENV ICU_RELEASE 62.1
 RUN curl -o /tmp/icu.tar.gz -L http://download.icu-project.org/files/icu4c/$ICU_RELEASE/icu4c-$(echo $ICU_RELEASE | tr '.' '_')-src.tgz && tar -zxf /tmp/icu.tar.gz -C /tmp && cd /tmp/icu/source && ./configure --prefix=/usr/local && make && make install
 RUN docker-php-ext-configure intl --with-icu-dir=/usr/local
 RUN docker-php-ext-install intl
@@ -120,6 +113,7 @@ RUN set -ex \
     gpg --keyserver hkp://pgp.mit.edu:80 --recv-keys "$key" ; \
   done
 
+ENV NODE_VERSION 8.12.0
 RUN buildDeps='xz-utils' \
     && ARCH= && dpkgArch="$(dpkg --print-architecture)" \
     && case "${dpkgArch##*-}" in \
@@ -144,7 +138,7 @@ RUN buildDeps='xz-utils' \
     && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
 # yarn
-
+ENV YARN_VERSION 1.9.4
 RUN set -ex \
   && for key in \
     6A010C5166006599AA17F08146C2130DFD2497F5 \

@@ -11,7 +11,7 @@ services:
             - "80:80"
             - "443:443"
         expose:
-            - "9000"            
+            - "9000"
         volumes:
             - .:/var/www/html
             - ./dockerfiles/apachelogs:/var/log/apache2
