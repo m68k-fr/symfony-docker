@@ -12,7 +12,7 @@ As usual, the repository is configured for a development environment, please do 
 * [Docker](https://www.docker.com/)
 * [Apache](https://httpd.apache.org/)
 * [MySQL](https://www.mysql.com/)
-* [PHP 7.1](https://php.net/)
+* [PHP FPM 7.1](https://php.net/)
 * [PhpMyAdmin](https://www.phpmyadmin.net/)
 * [Symfony 3.4](https://symfony.com/)
 * [Composer](https://getcomposer.org/)
@@ -86,9 +86,9 @@ Update the *Listen for XDebug* profile in the **launch.json** file with the foll
     "name": "Listen for XDebug",
     "type": "php",
     "request": "launch",
-    "port": 9000,
+    "port": 9001,
     "pathMappings": {
-        "/var/www/html": "${workspaceRoot}"
+        "/usr/local/apache2/htdocs": "${workspaceRoot}"
     }            
 },     
 ```
@@ -96,7 +96,7 @@ Update the *Listen for XDebug* profile in the **launch.json** file with the foll
 ## Configure XDebug for PhpStorm
 
 Using PHPStorm, in settings / Language & Frameworks / PHP / Debug / DBGPproxy:  
-* Port: 9000
+* Port: 9001
 * Host: Use the **DOCKER_NAT_IP** ip
 
 

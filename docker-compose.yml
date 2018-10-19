@@ -1,34 +1,47 @@
 version: '2'
 
 services:
-    symfony:
+
+    httpd:
+      image: httpd:2.4
+      ports:
+        - "80:80"
+        - "443:443"
+      volumes:
+        - ./dockerfiles/conf/ssl/ssl-cert-mylocalmachine.pem:/etc/ssl/certs/ssl-cert-mylocalmachine.pem
+        - ./dockerfiles/conf/ssl/ssl-cert-mylocalmachine.key:/etc/ssl/private/ssl-cert-mylocalmachine.key
+        - ./dockerfiles/conf/httpd.conf:/usr/local/apache2/conf/httpd.conf
+        - ./dockerfiles/conf/vhosts:/usr/local/apache2/conf/vhosts
+        - ./dockerfiles/apachelogs:/usr/local/apache2/logs
+      volumes_from:
+        - php
+
+    php:
         build:
             context: .
             args:
                 # On windows, you can use "ipconfig /all" to get the IP of your docker nat host
                 DOCKER_NAT_IP: 10.0.75.1
-        ports:
-            - "80:80"
-            - "443:443"
         expose:
             - "9000"
+            - "9001"
         volumes:
-            - .:/var/www/html
-            - ./dockerfiles/apachelogs:/var/log/apache2
-            # Mount an empty folder for /var/www/html/dockerfiles/ in the container
-            - /var/www/html/dockerfiles/
+            - .:/usr/local/apache2/htdocs
+            # Mount an empty folder to remove dockerfiles from htdocs
+            #- /usr/local/apache2/htdocs/dockerfiles/
         links:
             - db:db
+
     db:
-        build:
-            context: .
-            dockerfile: Dockerfile-mysql
+        image: mysql:5.5
         volumes:
             - ./dockerfiles/mysql:/var/lib/mysql
+            - ./dockerfiles/conf/mysqld_charset.cnf:/etc/mysql/conf.d/mysqld_charset.cnf
         ports:
             - "3306:3306"
         environment:
             - MYSQL_ROOT_PASSWORD=root
+
     myadmin:
         image: phpmyadmin/phpmyadmin
         ports:

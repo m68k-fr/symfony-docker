@@ -1,4 +1,4 @@
-FROM php:7.1-apache
+FROM php:7.1-fpm
 
 LABEL maintainer="llemoullec@gmail.com"
  
@@ -66,7 +66,7 @@ RUN docker-php-ext-enable imagick
 RUN docker-php-ext-configure opcache --enable-opcache && docker-php-ext-install opcache
 COPY dockerfiles/conf/opcache.ini $PHP_INI_DIR/conf.d/
 
-# Update ICU data bundled to the symfony required version
+# Update ICU data bundled to the symfony 3.4 required version
 ENV ICU_RELEASE 62.1
 RUN curl -o /tmp/icu.tar.gz -L http://download.icu-project.org/files/icu4c/$ICU_RELEASE/icu4c-$(echo $ICU_RELEASE | tr '.' '_')-src.tgz && tar -zxf /tmp/icu.tar.gz -C /tmp && cd /tmp/icu/source && ./configure --prefix=/usr/local && make && make install
 RUN docker-php-ext-configure intl --with-icu-dir=/usr/local
@@ -78,17 +78,6 @@ RUN cd /tmp && curl https://getcomposer.org/installer | php && mv composer.phar 
 # Set timezone
 RUN rm /etc/localtime
 RUN ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
-
-# Apache Configuration
-COPY dockerfiles/conf/000-default.conf /etc/apache2/sites-available/000-default.conf
-RUN a2enmod rewrite
-RUN a2enmod headers
-
-# SSL configuration
-COPY dockerfiles/conf/default-ssl.conf /etc/apache2/sites-available/default-ssl.conf
-RUN a2enmod ssl
-RUN a2ensite default-ssl
-RUN openssl req -subj '/CN=localdevmachine.com/O=My Dev Local Machine LTD./C=US' -new -newkey rsa:2048 -days 365 -nodes -x509 -keyout /etc/ssl/private/ssl-cert-snakeoil.key -out /etc/ssl/certs/ssl-cert-snakeoil.pem
 
 # Node (Taken from node:8-slim)
 
@@ -157,4 +146,5 @@ RUN set -ex \
 && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
 
 
-CMD cron && apache2-foreground
+WORKDIR /usr/local/apache2/htdocs
+CMD ["php-fpm"]
