@@ -43,7 +43,7 @@ services:
             - MYSQL_ROOT_PASSWORD=root
 
     myadmin:
-        image: phpmyadmin/phpmyadmin
+        image: phpmyadmin/phpmyadmin:4.6
         ports:
             - "8080:80"
         links:
