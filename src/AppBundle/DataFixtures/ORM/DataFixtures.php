@@ -2,7 +2,8 @@
 
 namespace AppBundle\DataFixtures\ORM;
 
-use AppBundle\Entity\Article;
+use AppBundle\Entity\BlogCategory;
+use AppBundle\Entity\BlogPost;
 use Doctrine\Common\DataFixtures\FixtureInterface;
 use Doctrine\Common\Persistence\ObjectManager;
 use Faker;
@@ -14,20 +15,34 @@ class DataFixtures implements FixtureInterface
 
         $faker = Faker\Factory::create('fr_FR');
 
-        // create 20 fake articles
-        for ($i = 1; $i < 21; ++$i) {
-            $article = new Article();
-            $article->setTitle($faker->sentence);
+        // BlogCategory: generate 5 fake category
 
-            $paragraphs = "";
-            foreach ($faker->paragraphs() as $paragraph) {
-                $paragraphs .=  "<p>".$paragraph."</p>\n";
+        for ($i = 0; $i < 5; ++$i) {
+            $category = new BlogCategory();
+            $category->setTitle(implode(" ",$faker->words()));
+            $category->setOrdering($i + 1);
+            $category->setActive(1);
+            $manager->persist($category);
+
+
+            // BlogPost: generate 5 fake articles in each category
+            for ($j = 0; $j < 5; ++$j) {
+                $post = new BlogPost();
+                $post->setTitle($faker->sentence);
+
+                $paragraphs = "";
+                foreach ($faker->paragraphs() as $paragraph) {
+                    $paragraphs .=  "<p>".$paragraph."</p>\n";
+                }
+                $post->setCategory($category);
+                $post->setContent($paragraphs);
+                $post->setImageUrl("https://placeimg.com/640/480/tech");
+                $post->setPostedAt($faker->dateTime);
+                $post->setActive($faker->boolean);
+                $manager->persist($post);
             }
-            $article->setContent($paragraphs);
-            $article->setPostedAt($faker->dateTime);
-            $article->setActive($faker->boolean);
-            $manager->persist($article);
         }
+
         $manager->flush();
     }
 }

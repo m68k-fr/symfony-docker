@@ -6,9 +6,9 @@ use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="article")
+ * @ORM\Table(name="blog_content")
  */
-class Article
+class BlogPost
 {
     /**
      * @ORM\Column(type="integer")
@@ -16,6 +16,12 @@ class Article
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="BlogCategory", inversedBy="blogposts")
+     * @ORM\JoinColumn(name="category_id", referencedColumnName="id")
+     */
+    private $category;
 
     /**
      * @ORM\Column(type="string", length=255)
@@ -26,6 +32,11 @@ class Article
      * @ORM\Column(type="text")
      */
     private $content;
+
+    /**
+     * @ORM\Column(type="string", length=255)
+     */
+    private $imageurl;
 
     /**
      * @ORM\Column(type="datetime")
@@ -64,6 +75,22 @@ class Article
     /**
      * @return mixed
      */
+    public function getCategory()
+    {
+        return $this->category;
+    }
+
+    /**
+     * @param mixed $category
+     */
+    public function setCategory($category)
+    {
+        $this->category = $category;
+    }
+
+    /**
+     * @return mixed
+     */
     public function getContent()
     {
         return $this->content;
@@ -75,6 +102,22 @@ class Article
     public function setContent($content)
     {
         $this->content = $content;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageUrl()
+    {
+        return $this->imageurl;
+    }
+
+    /**
+     * @param mixed $active
+     */
+    public function setImageUrl($image)
+    {
+        $this->imageurl = $image;
     }
 
     /**

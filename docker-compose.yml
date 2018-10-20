@@ -14,9 +14,9 @@ services:
         - ./dockerfiles/conf/vhosts:/usr/local/apache2/conf/vhosts
         - ./dockerfiles/apachelogs:/usr/local/apache2/logs
       volumes_from:
-        - php
+        - web
 
-    php:
+    web:
         build:
             context: .
             args:
@@ -42,7 +42,7 @@ services:
         environment:
             - MYSQL_ROOT_PASSWORD=root
 
-    myadmin:
+    phpmyadmin:
         image: phpmyadmin/phpmyadmin:4.6
         ports:
             - "8080:80"
