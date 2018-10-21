@@ -1,2 +1,27 @@
 {% extends 'layout/main.html.twig' %}
 
+{% block blocks_blog_home %}
+<section class="main">
+    <div class="container">
+        <div class="content">
+            <div class="row">
+
+            {% for block_blog in blocks_blog %}
+                <div class="col-md-4">
+                    <h3>{{ block_blog.title }}</h3>
+                    {% for blog_post in block_blog.posts %}
+                        <h4><a href="#">{{ blog_post.title }}</a></h4>
+                        <p>{{ (blog_post.content|length > 150 ? blog_post.content|slice(0, 150) ~ '...' : blog_post.content)|striptags }}</p>
+                    {% endfor %}
+                    <div class="btn-holder">
+                        <a href="#" class="btn btn-link">Read More</a>
+                    </div>
+                </div>
+            {% endfor %}
+
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

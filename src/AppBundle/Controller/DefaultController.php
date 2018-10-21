@@ -2,6 +2,8 @@
 
 namespace AppBundle\Controller;
 
+use AppBundle\Entity\BlogCategory;
+use AppBundle\Entity\BlogPost;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\Routing\Annotation\Route;
@@ -13,9 +15,23 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        // replace this example code with whatever you need
+        $repoBlogPost = $this->getDoctrine()->getRepository(BlogPost::class);
+        $repoBlogCat = $this->getDoctrine()->getRepository(BlogCategory::class);
+
+        $i = 0;
+        $blocksBlog = array();
+        $blogCategories = $repoBlogCat->findBy(array('active' => true), array('ordering' => 'ASC'), 3);
+        foreach ($blogCategories as $blogCategory) {
+            $blocksBlog[$i]['title'] = $blogCategory->getTitle();
+            $blocksBlog[$i]['posts'] = $repoBlogPost->findBy(
+                array('category' => $blogCategory->getId(), 'active' => 1),
+                array('postedAt' => 'DESC'),
+                3);
+            ++$i;
+        }
+
         return $this->render('default/index.html.twig', array(
-            'base_dir' => realpath($this->getParameter('kernel.project_dir')).\DIRECTORY_SEPARATOR,
+            'blocks_blog' => $blocksBlog,
         ));
     }
 

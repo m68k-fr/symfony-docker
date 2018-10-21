@@ -3,9 +3,10 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
- * BlogCategory
+ * BlogCategory.
  *
  * @ORM\Table(name="blog_category")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogCategoryRepository")
@@ -20,6 +21,11 @@ class BlogCategory
      * @ORM\GeneratedValue(strategy="AUTO")
      */
     private $id;
+
+    /**
+     * @ORM\OneToMany(targetEntity="BlogPost", mappedBy="category")
+     */
+    private $blogposts;
 
     /**
      * @var string
@@ -42,9 +48,13 @@ class BlogCategory
      */
     private $ordering;
 
+    public function __construct()
+    {
+        $this->blogposts = new ArrayCollection();
+    }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -54,7 +64,7 @@ class BlogCategory
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -68,7 +78,7 @@ class BlogCategory
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -78,9 +88,9 @@ class BlogCategory
     }
 
     /**
-     * Set active
+     * Set active.
      *
-     * @param boolean $active
+     * @param bool $active
      *
      * @return BlogCategory
      */
@@ -92,7 +102,7 @@ class BlogCategory
     }
 
     /**
-     * Get active
+     * Get active.
      *
      * @return bool
      */
@@ -102,9 +112,9 @@ class BlogCategory
     }
 
     /**
-     * Set order
+     * Set order.
      *
-     * @param integer $order
+     * @param int $order
      *
      * @return BlogCategory
      */
@@ -116,7 +126,7 @@ class BlogCategory
     }
 
     /**
-     * Get order
+     * Get order.
      *
      * @return int
      */
@@ -125,4 +135,3 @@ class BlogCategory
         return $this->ordering;
     }
 }
-
