@@ -32,6 +32,13 @@ RUN apt-get update && \
 # Use the default php.ini development configuration
 RUN mv $PHP_INI_DIR/php.ini-development $PHP_INI_DIR/php.ini
 
+
+# php.ini overrided settings
+
+# memory_limit set to -1, needed in dev mode for some heavy composer task, don't use this in production !
+# TODO: Override this memory_limit in a custom php.ini used by php cli env only
+RUN sed -i 's/^memory_limit = 128M/memory_limit = -1/g' $PHP_INI_DIR/php.ini
+
 # PHP Configuration
 RUN docker-php-ext-install bcmath
 RUN docker-php-ext-install bz2

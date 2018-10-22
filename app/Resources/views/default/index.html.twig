@@ -25,3 +25,36 @@
 </section>
 {% endblock %}
 
+
+{% block block_visual_home %}
+<section class="visual">
+    <div class="container">
+        <div class="text-block">
+            <div class="heading-holder">
+                <h1>Fork App</h1>
+            </div>
+            <p class="tagline">A real gamechanger in the world of web development</p>
+            <span class="info">Version 2.8 for Mac and Windows</span>
+        </div>
+    </div>
+    <img src="{{ asset('build/images/img-decor-01.jpg') }}" alt="" class="bg-stretch">
+</section>
+{% endblock %}
+
+{% block block_main_home %}
+<section class="main">
+    <div class="container">
+        <div id="cta">
+            <a href="http://tympanus.net/codrops/?p=23525" class="btn btn-primary rounded">Download For Free Now</a>
+            <p>Unlimited 30-Days Trial Period</p>
+        </div>
+        <div class="row">
+            <div class="text-box col-md-offset-1 col-md-10">
+                <h2>Revolutionary editor</h2>
+                <p>Aenean cursus imperdiet nisl id fermentum. Aliquam pharetra dui laoreet vulputate dignissim. Sed id metus id quam auctor molestie eget ut augue. </p>
+                <div class="social-placeholder"><img src="{{ asset('build/images/img-social-placeholder-01.png') }}" height="26" width="365" alt=""></div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

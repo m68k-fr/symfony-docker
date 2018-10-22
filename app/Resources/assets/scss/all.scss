@@ -195,15 +195,20 @@ p {
 	-ms-transform: rotate(-45deg);
 	transform: rotate(-45deg);
 }
+
+.main_blank {
+  height: 104px;
+}
+
 .visual {
-	min-height: 904px;
+	min-height: 800px;
 	position: relative;
 	overflow: hidden;
 	text-align: center;
 	color: #8d81ac;
 	font-size: 0;
 	letter-spacing: -4px;
-	padding: 104px 0 0;
+	padding: 0 0;
 	background: #000;
 
 	.bg-stretch {
@@ -867,7 +872,12 @@ p {
 	}
 }
 @media only screen and (max-width:$screen-md) {
-	.nav-opener {
+
+  .main_blank {
+    height: 0px;
+  }
+
+  .nav-opener {
 		display: inline-block;
 		vertical-align: top;
 	}
@@ -1225,6 +1235,7 @@ p {
 	}
 }
 @media only screen and (max-width:$screen-sm - 1) {
+
 	.testimonials {
 		margin: 0 0 -20px;
 

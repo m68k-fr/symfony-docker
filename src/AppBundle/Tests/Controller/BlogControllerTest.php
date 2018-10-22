@@ -12,5 +12,4 @@ class BlogControllerTest extends WebTestCase
 
         $crawler = $client->request('GET', '/blog');
     }
-
 }
