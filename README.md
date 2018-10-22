@@ -1,6 +1,6 @@
 # A Symfony sample project using Docker on Windows
 
-[![Build Status](https://travis-ci.org/ngc5128/symfony-docker.svg?branch=master)](https://travis-ci.org/ngc5128/symfony-docker)
+[![Build Status](https://travis-ci.org/m68k-fr/symfony-docker.svg?branch=master)](https://travis-ci.org/m68k-fr/symfony-docker)
 
 This is a general purpose Symfony project using Docker on Windows.  
 It features a use case website, the usual project you could encounter in a web agency.   
@@ -29,7 +29,7 @@ As usual, the repository is configured for a development environment, please do 
 Clone the repository.  
 
 ```sh
-git clone https://github.com/ngc5128/symfony-docker.git
+git clone https://github.com/m68k-fr/symfony-docker.git
 ```
 
 
