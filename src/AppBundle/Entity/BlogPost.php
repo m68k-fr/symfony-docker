@@ -3,10 +3,13 @@
 namespace AppBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\HttpFoundation\File\File;
+use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="AppBundle\Repository\BlogPostRepository")
  * @ORM\Table(name="blog_content")
+ * @Vich\Uploadable
  */
 class BlogPost
 {
@@ -39,6 +42,13 @@ class BlogPost
     private $imageurl;
 
     /**
+     * @Vich\UploadableField(mapping="blogpost_images", fileNameProperty="imageurl")
+     *
+     * @var File
+     */
+    private $imageFile;
+
+    /**
      * @ORM\Column(type="datetime")
      */
     private $postedAt;
@@ -47,6 +57,14 @@ class BlogPost
      * @ORM\Column(type="boolean")
      */
     private $active;
+
+    /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return sprintf('%s', $this->getTitle());
+    }
 
     /**
      * @return mixed
@@ -113,11 +131,34 @@ class BlogPost
     }
 
     /**
-     * @param mixed $active
+     * @param mixed $image
      */
     public function setImageUrl($image)
     {
         $this->imageurl = $image;
+    }
+
+    /**
+     * @param mixed $image
+     */
+    public function setImageFile(File $image = null)
+    {
+        $this->imageFile = $image;
+
+        // VERY IMPORTANT:
+        // It is required that at least one field changes if you are using Doctrine,
+        // otherwise the event listeners won't be called and the file is lost
+        if ($image) {
+            $this->postedAt = new \DateTime('now');
+        }
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getImageFile()
+    {
+        return $this->imageFile;
     }
 
     /**

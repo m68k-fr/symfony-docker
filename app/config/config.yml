@@ -7,10 +7,12 @@ imports:
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     locale: en
+    app.path.blogpost_images: /uploads/images/blogpost
+
 
 framework:
     #esi: ~
-    #translator: { fallbacks: ['%locale%'] }
+    translator: { fallbacks: ['%locale%'] }
     secret: '%secret%'
     router:
         resource: '%kernel.project_dir%/app/config/routing.yml'
@@ -74,8 +76,40 @@ sensio_framework_extra:
    router:
         annotations: false
 
+vich_uploader:
+  db_driver: orm
+  mappings:
+    blogpost_images:
+      uri_prefix:         '%app.path.blogpost_images%'
+      upload_destination: '%kernel.root_dir%/../web%app.path.blogpost_images%'
+
 easy_admin:
+    site_name: 'Forkio Back office'
+    design:
+      color_scheme: 'light'
+    formats:
+      date:     'd/m/Y'
+      time:     'H:i'
+      datetime: 'd/m/Y H:i:s'
     entities:
-    # change the following to the namespaces of your own entities
-    - AppBundle\Entity\BlogCategory
-    - AppBundle\Entity\BlogPost
+      BlogCategory:
+        class: AppBundle\Entity\BlogCategory
+        label: 'Blog Categories'
+        list:
+          title: "List of blog categories"
+      BlogPost:
+        class: AppBundle\Entity\BlogPost
+        label: 'Blog Posts'
+        list:
+          sort: 'postedAt'
+          title: "List of blog posts"
+          fields: ['id', 'active', 'title', { property: 'imageurl', type: 'image', base_path: '%app.path.blogpost_images%' }, 'postedAt', 'category']
+        form:
+          fields:
+            - title
+            - { property: 'content', label: 'Content', type: 'ckeditor' }
+            - active
+            - { property: 'imageFile', type: 'vich_image' }
+            - postedAt
+            - category
+

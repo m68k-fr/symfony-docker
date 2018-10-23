@@ -54,6 +54,24 @@ class BlogCategory
     }
 
     /**
+     * @return string
+     */
+    public function __toString()
+    {
+        return sprintf('%s', $this->getTitle());
+    }
+
+    /**
+     * Get Blogposts.
+     *
+     * @return mixed
+     */
+    public function getBlogposts()
+    {
+        return $this->blogposts;
+    }
+
+    /**
      * Get id.
      *
      * @return int
