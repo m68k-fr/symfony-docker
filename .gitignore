@@ -26,3 +26,4 @@
 /node_modules/
 /web/build/
 yarn-error.log
+.env

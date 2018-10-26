@@ -17,11 +17,16 @@ services:
         - web
 
     web:
+        user: ${USER_NAME}:${GROUP_NAME}
         build:
             context: .
             args:
-                # On windows, you can use "ipconfig /all" to get the IP of your docker nat host
-                DOCKER_NAT_IP: 10.0.75.1
+                DOCKER_NAT_IP: ${DOCKER_NAT_IP}
+                TIMEZONE: ${TIMEZONE}
+                USER_NAME: ${USER_NAME}
+                USER_UID: ${USER_UID}
+                GROUP_NAME: ${GROUP_NAME}
+                GROUP_UID: ${GROUP_UID}
         expose:
             - "9000"
             - "9001"
@@ -40,7 +45,10 @@ services:
         ports:
             - "3306:3306"
         environment:
-            - MYSQL_ROOT_PASSWORD=root
+            MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+            MYSQL_DATABASE: ${MYSQL_DATABASE}
+            MYSQL_USER: ${MYSQL_USER}
+            MYSQL_PASSWORD: ${MYSQL_PASSWORD}
 
     phpmyadmin:
         image: phpmyadmin/phpmyadmin:4.6

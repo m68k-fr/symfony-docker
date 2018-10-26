@@ -1,7 +1,17 @@
 FROM php:7.1-fpm
 
 LABEL maintainer="llemoullec@gmail.com"
- 
+
+ARG TIMEZONE
+ARG USER_NAME
+ARG USER_UID
+ARG GROUP_NAME
+ARG GROUP_UID
+ARG DOCKER_NAT_IP
+
+ENV ICU_RELEASE 62.1
+ENV NODE_VERSION 8.12.0
+ENV YARN_VERSION 1.9.4
 
 RUN apt-get update && \
     apt-get install --yes --assume-yes \
@@ -60,7 +70,6 @@ RUN docker-php-ext-install zip
 RUN docker-php-ext-configure hash --with-mhash
 
 # Xdebug
-ARG DOCKER_NAT_IP
 RUN pecl install xdebug && docker-php-ext-enable xdebug
 COPY dockerfiles/conf/xdebug.ini $PHP_INI_DIR/conf.d/
 RUN echo "xdebug.remote_host=${DOCKER_NAT_IP}" >> $PHP_INI_DIR/conf.d/xdebug.ini
@@ -74,7 +83,6 @@ RUN docker-php-ext-configure opcache --enable-opcache && docker-php-ext-install 
 COPY dockerfiles/conf/opcache.ini $PHP_INI_DIR/conf.d/
 
 # Update ICU data bundled to the symfony 3.4 required version
-ENV ICU_RELEASE 62.1
 RUN curl -o /tmp/icu.tar.gz -L http://download.icu-project.org/files/icu4c/$ICU_RELEASE/icu4c-$(echo $ICU_RELEASE | tr '.' '_')-src.tgz && tar -zxf /tmp/icu.tar.gz -C /tmp && cd /tmp/icu/source && ./configure --prefix=/usr/local && make && make install
 RUN docker-php-ext-configure intl --with-icu-dir=/usr/local
 RUN docker-php-ext-install intl
@@ -84,12 +92,14 @@ RUN cd /tmp && curl https://getcomposer.org/installer | php && mv composer.phar 
 
 # Set timezone
 RUN rm /etc/localtime
-RUN ln -s /usr/share/zoneinfo/Europe/Paris /etc/localtime
+RUN ln -s /usr/share/zoneinfo/${TIMEZONE} /etc/localtime
+
+# create a matching user from the host
+RUN groupadd --gid ${GROUP_UID} ${GROUP_NAME} \
+  && useradd --uid ${USER_UID} --gid ${GROUP_NAME} --shell /bin/bash --create-home ${USER_NAME}
+
 
 # Node (Taken from node:8-slim)
-
-RUN groupadd --gid 1000 node \
-  && useradd --uid 1000 --gid node --shell /bin/bash --create-home node
 
 # gpg keys listed at https://github.com/nodejs/node#release-team
 RUN set -ex \
@@ -109,7 +119,6 @@ RUN set -ex \
     gpg --keyserver hkp://pgp.mit.edu:80 --recv-keys "$key" ; \
   done
 
-ENV NODE_VERSION 8.12.0
 RUN buildDeps='xz-utils' \
     && ARCH= && dpkgArch="$(dpkg --print-architecture)" \
     && case "${dpkgArch##*-}" in \
@@ -134,7 +143,6 @@ RUN buildDeps='xz-utils' \
     && ln -s /usr/local/bin/node /usr/local/bin/nodejs
 
 # yarn
-ENV YARN_VERSION 1.9.4
 RUN set -ex \
   && for key in \
     6A010C5166006599AA17F08146C2130DFD2497F5 \
@@ -150,7 +158,7 @@ RUN set -ex \
   && tar -xzf yarn-v$YARN_VERSION.tar.gz -C /opt/ \
   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarn /usr/local/bin/yarn \
   && ln -s /opt/yarn-v$YARN_VERSION/bin/yarnpkg /usr/local/bin/yarnpkg \
-&& rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
+  && rm yarn-v$YARN_VERSION.tar.gz.asc yarn-v$YARN_VERSION.tar.gz
 
 
 WORKDIR /usr/local/apache2/htdocs
